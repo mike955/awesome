@@ -1,8 +1,3 @@
-# notes
-a note about work and study for every day 
+# Headline
 
-### add vuepress
-
-```sh
-vuepress dev .
-```
+> An awesome project.
