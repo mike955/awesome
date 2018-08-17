@@ -32,7 +32,13 @@ module.exports = {
             },
             {
                 title: 'Node',
-                children: ['/Node/install_node_nvm.md']
+                children: ['/Node/test/supertest.md', '/Node/install_node_nvm.md'],
+                sidebar: [
+                    {
+                        title: 'test',
+                        children: ['/Node/test/supertest.md'] 
+                    }
+                ]
             },
             {
                 title: 'Openresty',

@@ -1,4 +1,4 @@
-### NVM 方式安装 Node.js
+# NVM 方式安装 Node.js
 
 安装脚本
 ```sh

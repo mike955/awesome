@@ -1,4 +1,4 @@
-1. openresty安装(centos)
+# openresty安装(centos)
 
 ```sh
 #!bin/bash
