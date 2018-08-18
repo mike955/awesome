@@ -1,3 +1,4 @@
-# Headline
-
-> An awesome project.
+# Start
+```sh
+docsify serve ./notes
+```

@@ -2,6 +2,7 @@
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
+### 搭建私有registry仓库
 
 * [搭建私有 registry 仓库](#搭建私有registry仓库)
 * [拉取docker-registry镜像](#拉取docker-registry镜像)
@@ -10,9 +11,6 @@
 * [查看私库镜像](#查看私库镜像)
 * [推送镜像到私库](#推送镜像到私库)
 
-
-<!-- code_chunk_output -->
-### 搭建私有registry仓库
 
 require
  * docker 1.6.0+
