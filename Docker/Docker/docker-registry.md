@@ -62,6 +62,7 @@ docker  push localhost:5000/centos
   ADD_REGISTRY='--insecure-registry 192.168.16.47:5000'
   ```
  * push 可能会出现retry，多试几次
+
 ```sh
 docker pull centos
 
