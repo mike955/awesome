@@ -3,6 +3,8 @@
 ---
 * Object 是一个构造函数，为给定值创建一个对象包装器
 * 有两个属性：length、prototype
+    * Object.length 值为1
+    * Object.prototype 可以为所有 Object 类型的对象添加属性
 * 有很多方法，如下表
 
 ## Object方法表
