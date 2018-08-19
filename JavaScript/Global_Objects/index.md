@@ -3,17 +3,17 @@
 ---
 ### Value properties
 
-* [Infinity](./infinity.md)
+* [Infinity](./inFinity.md)
 * [NaN](./nan.md)
 * [undefined](./undefined.md)
-* [NaN](./nan.md)
+* [Null](./null.md)
 
 
 ### Function properties
 
 * [eval](./eval.md)
 * [uneval](./uneval.md)
-* [inFinite](./inFinite.md)
+* [isFinite](./isFinite.md)
 * [isNaN](./isNaN.md)
 * [parseFloat](./parseFloat.md)
 * [parseInt](./parseInt.md)
