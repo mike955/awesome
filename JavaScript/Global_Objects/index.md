@@ -27,19 +27,6 @@
 
 ### Fundamental objects
 
-* [Object](./object.md)
-* [Fcuntion](./fcuntion.md)
-* [Boolean](./boolean.md)
-* [Symbol](./symbol.md)
-* [Error](./error.md)
-* [EvalError](./evalError.md)
-* [InternalError](./internalError.md)
-* [RangeError](./rangeError.md)
-* [ReferenceError](./referenceError.md)
-* [SyntaxError](./syntaxError.md)
-* [TypeError](./typeError.md)
-* [URIError](./uRIError.md)
-
 ### Numberr and dates
 
 * [Number](./number.md)
