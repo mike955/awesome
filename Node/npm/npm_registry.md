@@ -2,13 +2,13 @@
 
 ---
 
-### 1. 安装 verdaccio
+### 1. 安装 Sinopia
 
 ```sh
 npm install sinopia -g
 ```
 
-### 2. 启动 verdaccio
+### 2. 启动 Sinopia
 
 ```sh
 sinopia   # 或 pm2 start `which sinopia`
