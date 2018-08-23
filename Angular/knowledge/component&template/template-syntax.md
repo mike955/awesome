@@ -1,243 +1,74 @@
-# 组件与模板
+# 模板语法
 
 ---
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
+<!-- code_chunk_output -->
+
+* [模板语法](#模板语法)
+* [显示数组](#显示数组)
+	* [插值表达式](#插值表达式)
+	* [模板表达式](#模板表达式)
+		* [表达式上下文](#表达式上下文)
+		* [表达式指南](#表达式指南)
+	* [模板语句](#模板语句)
+		* [语句上下文](#语句上下文)
+		* [语句指南](#语句指南)
+	* [绑定语法](#绑定语法)
+		* [HTML attribute 与 DOM property 的比较](#html-attribute-与-dom-property-的比较)
+		* [绑定目标](#绑定目标)
+	* [属性绑定](#属性绑定)
+		* [单向输入](#单向输入)
+		* [绑定目标](#绑定目标-1)
+		* [返回恰当的类型](#返回恰当的类型)
+		* [一次性字符串初始化](#一次性字符串初始化)
+		* [属性绑定与插值表达式](#属性绑定与插值表达式)
+		* [内容安全](#内容安全)
+	* [attribute、class 和 style 绑定](#attribute-class-和-style-绑定)
+		* [attribute 绑定](#attribute-绑定)
+		* [CSS 类绑定](#css-类绑定)
+		* [样式绑定](#样式绑定)
+	* [事件绑定](#事件绑定)
+		* [目标事件](#目标事件)
+		* [$event 和事件处理语句](#event-和事件处理语句)
+		* [使用 EventEmitter 实现自定义事件](#使用-eventemitter-实现自定义事件)
+	* [双向数据绑定](#双向数据绑定)
+	* [内置指令](#内置指令)
+	* [内置属性型指令](#内置属性型指令)
+		* [NgClass](#ngclass)
+		* [NgStyle](#ngstyle)
+		* [NgModule](#ngmodule)
+	* [内置结构型指令](#内置结构型指令)
+		* [NgIf](#ngif)
+		* [NgForOf](#ngforof)
+		* [模板输入变量](#模板输入变量)
+		* [带索引的 *ngFor](#带索引的-ngfor)
+		* [带 trackBy 的 *ngFor](#带-trackby-的-ngfor)
+		* [NgSwitch 指令](#ngswitch-指令)
+	* [模板引用变量（#var）](#模板引用变量var)
+	* [输入和输出属性](#输入和输出属性)
+		* [声明输入与输出属性](#声明输入与输出属性)
+		* [输入还是输出](#输入还是输出)
+		* [给输入输出起别名](#给输入输出起别名)
+	* [模板表达式](#模板表达式-1)
+		* [管道操作符 (|)](#管道操作符)
+		* [安全导航操作符(?.)和空属性路径](#安全导航操作符和空属性路径)
+		* [非空断言操作符 (!)](#非空断言操作符)
+	* [类型转换](#类型转换)
+
 <!-- /code_chunk_output -->
 
-- [组件与模板](#%E7%BB%84%E4%BB%B6%E4%B8%8E%E6%A8%A1%E6%9D%BF)
-    - [显示数组](#%E6%98%BE%E7%A4%BA%E6%95%B0%E7%BB%84)
-        - [使用插值表达式显示组件属性](#%E4%BD%BF%E7%94%A8%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%98%BE%E7%A4%BA%E7%BB%84%E4%BB%B6%E5%B1%9E%E6%80%A7)
-        - [内联模版与模板文件](#%E5%86%85%E8%81%94%E6%A8%A1%E7%89%88%E4%B8%8E%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6)
-        - [构造函数与变量初始化](#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%8E%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96)
-        - [ngFor 显示数组属性](#ngfor-%E6%98%BE%E7%A4%BA%E6%95%B0%E7%BB%84%E5%B1%9E%E6%80%A7)
-        - [为数据创建一个类](#%E4%B8%BA%E6%95%B0%E6%8D%AE%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB)
-        - [通过 NgIf 进行条件显示](#%E9%80%9A%E8%BF%87-ngif-%E8%BF%9B%E8%A1%8C%E6%9D%A1%E4%BB%B6%E6%98%BE%E7%A4%BA)
-    - [模板语法](#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95)
-        - [插值表达式](#%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-        - [模板表达式](#%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-            - [表达式上下文](#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87)
-            - [表达式指南](#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%8C%87%E5%8D%97)
-        - [模板语句](#%E6%A8%A1%E6%9D%BF%E8%AF%AD%E5%8F%A5)
-            - [语句上下文](#%E8%AF%AD%E5%8F%A5%E4%B8%8A%E4%B8%8B%E6%96%87)
-            - [语句指南](#%E8%AF%AD%E5%8F%A5%E6%8C%87%E5%8D%97)
-        - [绑定语法](#%E7%BB%91%E5%AE%9A%E8%AF%AD%E6%B3%95)
-            - [HTML attribute 与 DOM property 的比较](#html-attribute-%E4%B8%8E-dom-property-%E7%9A%84%E6%AF%94%E8%BE%83)
-            - [绑定目标](#%E7%BB%91%E5%AE%9A%E7%9B%AE%E6%A0%87)
-        - [属性绑定](#%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A)
-            - [单向输入](#%E5%8D%95%E5%90%91%E8%BE%93%E5%85%A5)
-            - [绑定目标](#%E7%BB%91%E5%AE%9A%E7%9B%AE%E6%A0%87)
-            - [返回恰当的类型](#%E8%BF%94%E5%9B%9E%E6%81%B0%E5%BD%93%E7%9A%84%E7%B1%BB%E5%9E%8B)
-            - [一次性字符串初始化](#%E4%B8%80%E6%AC%A1%E6%80%A7%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%9D%E5%A7%8B%E5%8C%96)
-            - [属性绑定与插值表达式](#%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A%E4%B8%8E%E6%8F%92%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-            - [内容安全](#%E5%86%85%E5%AE%B9%E5%AE%89%E5%85%A8)
-        - [attribute、class 和 style 绑定](#attribute%E3%80%81class-%E5%92%8C-style-%E7%BB%91%E5%AE%9A)
-            - [attribute 绑定](#attribute-%E7%BB%91%E5%AE%9A)
-            - [CSS 类绑定](#css-%E7%B1%BB%E7%BB%91%E5%AE%9A)
-            - [样式绑定](#%E6%A0%B7%E5%BC%8F%E7%BB%91%E5%AE%9A)
-        - [事件绑定](#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A)
-            - [目标事件](#%E7%9B%AE%E6%A0%87%E4%BA%8B%E4%BB%B6)
-            - [$event 和事件处理语句](#event-%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E8%AF%AD%E5%8F%A5)
-            - [使用 EventEmitter 实现自定义事件](#%E4%BD%BF%E7%94%A8-eventemitter-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6)
-        - [双向数据绑定](#%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A)
-        - [内置指令](#%E5%86%85%E7%BD%AE%E6%8C%87%E4%BB%A4)
-        - [内置属性型指令](#%E5%86%85%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%9E%8B%E6%8C%87%E4%BB%A4)
-            - [NgClass](#ngclass)
-            - [NgStyle](#ngstyle)
-            - [NgModule](#ngmodule)
-        - [内置结构型指令](#%E5%86%85%E7%BD%AE%E7%BB%93%E6%9E%84%E5%9E%8B%E6%8C%87%E4%BB%A4)
-            - [NgIf](#ngif)
-            - [NgForOf](#ngforof)
-            - [模板输入变量](#%E6%A8%A1%E6%9D%BF%E8%BE%93%E5%85%A5%E5%8F%98%E9%87%8F)
-            - [带索引的 *ngFor](#%E5%B8%A6%E7%B4%A2%E5%BC%95%E7%9A%84-ngfor)
-            - [带 trackBy 的 *ngFor](#%E5%B8%A6-trackby-%E7%9A%84-ngfor)
-            - [NgSwitch 指令](#ngswitch-%E6%8C%87%E4%BB%A4)
-        - [模板引用变量（#var）](#%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F%EF%BC%88var%EF%BC%89)
-        - [输入和输出属性](#%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E5%B1%9E%E6%80%A7)
-            - [声明输入与输出属性](#%E5%A3%B0%E6%98%8E%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA%E5%B1%9E%E6%80%A7)
-            - [输入还是输出](#%E8%BE%93%E5%85%A5%E8%BF%98%E6%98%AF%E8%BE%93%E5%87%BA)
-            - [给输入输出起别名](#%E7%BB%99%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%B5%B7%E5%88%AB%E5%90%8D)
-        - [模板表达式](#%E6%A8%A1%E6%9D%BF%E8%A1%A8%E8%BE%BE%E5%BC%8F)
-            - [管道操作符 (|)](#%E7%AE%A1%E9%81%93%E6%93%8D%E4%BD%9C%E7%AC%A6)
-            - [安全导航操作符(?.)和空属性路径](#%E5%AE%89%E5%85%A8%E5%AF%BC%E8%88%AA%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%92%8C%E7%A9%BA%E5%B1%9E%E6%80%A7%E8%B7%AF%E5%BE%84)
-            - [非空断言操作符 (!)](#%E9%9D%9E%E7%A9%BA%E6%96%AD%E8%A8%80%E6%93%8D%E4%BD%9C%E7%AC%A6)
-        - [类型转换](#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2)
-    - [生命周期钩子](#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
-    - [组件交互](#%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92)
-    - [组件样式](#%E7%BB%84%E4%BB%B6%E6%A0%B7%E5%BC%8F)
-    - [Angular 自定义元素](#angular-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E7%B4%A0)
-    - [动态组件](#%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6)
-    - [属性型组件指令](#%E5%B1%9E%E6%80%A7%E5%9E%8B%E7%BB%84%E4%BB%B6%E6%8C%87%E4%BB%A4)
-    - [结构型指令](#%E7%BB%93%E6%9E%84%E5%9E%8B%E6%8C%87%E4%BB%A4)
-    - [管道](#%E7%AE%A1%E9%81%93)
-    - [动画](#%E5%8A%A8%E7%94%BB)
+<!-- /code_chunk_output -->
 
-## 显示数组
-
-### 使用插值表达式显示组件属性
-
-要显示组件的属性，最简单的方式就是通过*插值表达式*（双花括号）来绑定属性名
-
-```ts
-<!-- src/app/app.component.ts -->
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  template: `
-    <h1>{{title}}</h1>
-    <h2>My favorite hero is: {{myHero}}</h2>
-    `
-})
-export class AppComponent {
-  title = 'Tour of Heroes';     // title 的值会在渲染时填充到上面 @Component 的 template 中的 {{title}}
-  myHero = 'Windstorm';     // myHero 的值会在渲染时填充到上面 @Component 的 template 中的 {{myHero}}
-}
-```
-
-[Back to TOC](#组件与模板)
-
-### 内联模版与模板文件
-
-```ts
-import { Component } from '@angular/core';
-
-// 内敛模板形式
-@Component({
-  selector: 'app-root',
-  template: `
-    <h1>{{title}}</h1>
-    <h2>My favorite hero is: {{myHero}}</h2>
-    `
-})
-
-// 模板文件形式
-<!-- templ.html -->
-<h1>{{title}}</h1>
-<h2>My favorite hero is: {{myHero}}</h2>
-
-@Component({
-  selector: 'app-root',
-  templateUrl: 'templ.html'
-})
-```
-
-[Back to TOC](#组件与模板)
-
-### 构造函数与变量初始化
-
-```ts
-import { Component } from "@angular/core";
-
-@Component({
-  selector: "app-root",
-  template: `
-    <h1>{{title}}</h1>
-    <h2>My favorite hero is: {{myHero}}</h2>
-    `
-})
-
-// 变量初始化
-export class AppComponent {
-  title = "Tour of Heroes";
-  myHero = "Windstorm";
-}
-
-//构造函数
-export class AppCtorComponent {
-  title: string;
-  myHero: string;
-
-  constructor() {
-    this.title = "Tour of Heroes";
-    this.myHero = "Windstorm";
-  }
-}
-```
-
-[Back to TOC](#组件与模板)
-
-### ngFor 显示数组属性
-
-_ngFor 可以为任何可迭代的(iterable)对象重复渲染条目_
-
-```ts
-import { Component } from "@angular/core";
-
-@Component({
-  selector: "app-root",
-  template: `
-        <h1>{{title}}</h1>
-        <h2>My favorite hero is: {{myHero}}</h2>
-        <p>Heroes:</p>
-        <ul>
-            <li *ngFor="let hero of heroes">
-            {{ hero }}
-            </li>
-        </ul>
-    `
-})
-
-// 变量初始化
-export class AppComponent {
-  title = "Tour of Heroes";
-  heroes = ["Windstorm", "Bombasto", "Magneta", "Tornado"];
-  myHero = this.heroes[0];
-}
-```
-
-[Back to TOC](#组件与模板)
-
-### 为数据创建一个类
-
-- 在组件内部之间定义数据不是最佳实践
-- 创建一个类用于定义数据结构
-- _ng g class hero_ 命令创建一个名为 Hero 的类
-
-```ts
-<!-- src/app/hero.ts -->
-export class Hero {
-  constructor(
-    public id: number,
-    public name: string) { }
-}
-
-<!-- src/app/app.component.ts (heroes) -->
-import { Hero } from '../hero';     // 导入 Hero 类
-heroes = [                          // 类型化的 Hero 对象
-  new Hero(1, 'Windstorm'),
-  new Hero(13, 'Bombasto'),
-  new Hero(15, 'Magneta'),
-  new Hero(20, 'Tornado')
-];
-myHero = this.heroes[0];
-```
-
-[Back to TOC](#组件与模板)
-
-### 通过 NgIf 进行条件显示
-
-- 条件显示视图和视图的一部分
-- ngIf 指令会根据一个布尔条件来显示或移除一个元素
-
-```ts
-// 当 heroes数组的长度大于 3 时，显示下面的 p 标签
-template: `
-  <p *ngIf="heroes.length > 3">There are many heroes!</p>
-`;
-```
-
-[Back to TOC](#组件与模板)
-
-## 模板语法
+# 显示数组
 
 - Angular 应用管理者用户之所见和所为，通过 Component 类的实例（组件）和面向用户的模板来与用户交互
 - Angualr 中，组件扮演着控制器或视图的角色，模板扮演视图的角色
 - script 标签在 Angular 中被禁用，防止脚本注入攻击
 
-[Back to TOC](#组件与模板)
-### 插值表达式
+[Back to TOC](#模板语法)
+## 插值表达式
 
 - Angular 会先对插值表达式中的模板表达式进行求值，再转换为字符串
 
@@ -248,9 +79,9 @@ template: `
 
 <p>The sum of 1 + 1 is not {{1 + 1 + getVal()}}</p> // 调用宿主件方法 The sum of 1 + 1 is not 4
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 模板表达式
+## 模板表达式
 
 - 模板表达式产生一个值，Angular 执行这个表达式，并把它赋值给绑定目标的属性
 - {{1 + 1}} 中所包含的模板表达式是 1 + 1
@@ -262,9 +93,9 @@ template: `
 - 不支持的 | 和 &
 - 具有新的模板表达式运算符，比如 _|_ 、_?_. 和 _!_
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 表达式上下文
+### 表达式上下文
 
 - 表达式上下文是各种绑定值的来源
 - 表达式的上下文可以包括组件之外的对象，比如*模板输入变量*和*模板引用变量*
@@ -276,9 +107,9 @@ template: `
 <input #heroInput> {{heroInput.value}}
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 表达式指南
+### 表达式指南
 
 表达式请遵循下列指南：
 
@@ -287,16 +118,16 @@ template: `
 - 非常简单：尽量简单
 - 幂等性：表达式应是幂等的，即相同的输入一定返回相同的输出
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 模板语句
+## 模板语句
 
 - 模板语句用来响应由绑定目标（ HTML 元素、组件或指令）触发的实践，出现在 = 号右侧的引号中，类似：(event)="statement"
 - 模板语句有副作用
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 语句上下文
+### 语句上下文
 
 - 语句只能引用语句上下文中 -- 通常是正在绑定事件的那个组件实例
 - 典型的语句上下文就是当前组件的实例，(click)="deleteHero()"中的 deleteHero 就是这个数据绑定组件上的一个方法
@@ -312,15 +143,15 @@ template: `
 
 <!-- 在上面的 deleteHero(hero) 中，hero 是一个模板输入变量，而不是组件中的 hero 属性 -->
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 语句指南
+### 语句指南
 
 - 避免写复杂的模板语句
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 绑定语法
+## 绑定语法
 
 - 数据绑定是一种机制，用来协调用户所见和应用数据
 - Angular 的绑定类型根据数据流的方向可以分成三类：从数据源到视图、从视图到数据源、从视图到数据源再到视图(双向)
@@ -331,11 +162,11 @@ template: `
 | 从视图到数据源         | (target)="statement" <br> on-target="statement"                         | 事件                                                     |
 | 从视图到数据源再到视图 | (target)="statement" <br>   on-target="statement"                       | 双向                                                     |
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### HTML attribute 与 DOM property 的比较
+### HTML attribute 与 DOM property 的比较
 
-#### 绑定目标
+### 绑定目标
 
  * 数据绑定的目标是 DOM 中的某些东西。这个目标可能是（元素|组件|指令的）property、（元素|组件|指令的）事件，或（极少数情况下）attribute 名
 
@@ -348,9 +179,9 @@ template: `
 |CSS类|class property|<button [style.color]="isSpecial ? 'red' : 'green'">|
 |样式|style property|<button [style.color]="isSpecial ? 'red' : 'green'">|
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 属性绑定
+## 属性绑定
 
  * 把元素的属性设置为组件属性的值
  * 设置指令的属性
@@ -370,16 +201,16 @@ template: `
 <!-- 设置自定义组件的模型属性 -->
 <app-hero-detail [hero]="currentHero"></app-hero-detail>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 单向输入
+### 单向输入
 
  * 即属性绑定，值从组件的数据属性流动到目标元素的属性
  * 不能使用属性绑定来从目标元素拉取值，不能绑定到目标元素的属性来读取它，只能设置它
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 绑定目标
+### 绑定目标
 
  * 包裹在防括号中的元素属性名标记着目标的属性
 
@@ -391,9 +222,9 @@ template: `
 <img bind-src="heroImageUrl">
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 返回恰当的类型
+### 返回恰当的类型
 
  * 目标属性需要什么类型值，模板表达式就应该返回什么类型值
 
@@ -402,9 +233,9 @@ template: `
 <app-hero-detail [hero]="currentHero"></app-hero-detail>
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 一次性字符串初始化
+### 一次性字符串初始化
 
  * 下列情况应省略属性名的方括号
     * 目标属性接受字符串值
@@ -416,9 +247,9 @@ template: `
 <app-hero-detail prefix="You are my" [hero]="currentHero"></app-hero-detail>
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 属性绑定与插值表达式
+### 属性绑定与插值表达式
 
 ```html
 <!-- 下面的四段代码功能一样 -->
@@ -431,30 +262,30 @@ template: `
 <p>"<span [innerHTML]="title"></span>" is the <i>property bound</i> title.</p>
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 内容安全
+### 内容安全
 
  * Angualr 数据绑定不允许带有 script 标签的 HTML 泄漏到浏览器
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### attribute、class 和 style 绑定
+## attribute、class 和 style 绑定
 
  * Angualr 为那些不太适合属性绑定的场景提供了专门的单向数据绑定形式
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### attribute 绑定
+### attribute 绑定
 
  * attribute 绑定的语法与属性绑定类似。 但方括号中的部分不是元素的属性名，而是由attr前缀，一个点 (.) 和 attribute 的名字组成
 ```html
 <!-- create and set an aria attribute for assistive technology -->
 <button [attr.aria-label]="actionName">{{actionName}} with Aria</button>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### CSS 类绑定
+### CSS 类绑定
 
  * 借助 CSS 类绑定，可以从元素的 class attribute 上添加和移除 CSS 类名
  * CSS 类绑定绑定的语法与属性绑定类似。 但方括号中的部分不是元素的属性名，而是由class前缀，一个点 (.)和 CSS 类的名字组成， 其中后两部分是可选的
@@ -472,9 +303,9 @@ template: `
      [class.special]="!isSpecial">This one is not so special</div>
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 样式绑定
+### 样式绑定
 
  * 通过样式绑定，可以设置内联样式
  * 样式绑定的语法与属性绑定类似。 但方括号中的部分不是元素的属性名，而由style前缀，一个点 (.)和 CSS 样式的属性名组成
@@ -489,9 +320,9 @@ template: `
 <button [style.font-size.%]="!isSpecial ? 150 : 50" >Small</button>
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 事件绑定
+## 事件绑定
 
  * 实现数据从元素流向组件
  * (目标事件)="事件名" 形式
@@ -499,9 +330,9 @@ template: `
 ```html
 <button (click)="onSave()">Save</button>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 目标事件
+### 目标事件
 
  * 圆括号中的名称 -- 比如（click）
 
@@ -510,9 +341,9 @@ template: `
 <button (click)="onSave()">Save</button>
 <button on-click="onSave()">On Save</button>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### $event 和事件处理语句
+### $event 和事件处理语句
 
  * 事件绑定中， Angular 会为目标事件设置事件处理器
  * 事件触发时，处理器执行模板语句
@@ -527,9 +358,9 @@ template: `
 <input [value]="currentHero.name"
        (input)="currentHero.name=$event.target.value" >
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 使用 EventEmitter 实现自定义事件
+### 使用 EventEmitter 实现自定义事件
 
  * 指令使用 Angualr EventEmitter 来触发自定义事件
  * 指令创建一个 EventEmitter 实例，并把它作为属性暴露出来
@@ -564,9 +395,9 @@ delete() {
 // src/app/app.component.html (event-binding-to-component)
 <app-hero-detail (deleteRequest)="deleteHero($event)" [hero]="currentHero"></app-hero-detail>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 双向数据绑定
+## 双向数据绑定
 
  * [(x)] : 盒子里的香蕉
  * 具有设置属性和监听事件的特性
@@ -611,16 +442,16 @@ export class SizerComponent {
 <!-- $event 变量包含了 SizerComponent.sizeChange 事件的荷载。 当用户点击按钮时，Angular 将 $event 赋值给 AppComponent.fontSizePx -->
 ```
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 内置指令
+## 内置指令
 
  * Angualr 包含超过 70 个内置指令
  * 指令分为 属性型指令 和 结构型指令
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 内置属性型指令
+## 内置属性型指令
 
  * 属性型指令会监听和修改其它 HTML 元素或组件的行为、元素属性（Attribute）、DOM 属性（Property
  * 下面主要介绍三种最常用的属性型指令
@@ -628,9 +459,9 @@ export class SizerComponent {
     * NgClass - 添加或移除一组 CSS样式
     * NgModule - 双向绑定到 HTML 表单元素
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### NgClass
+### NgClass
 
  *  ngClass 绑定到一个 key:value 形式的控制对象。这个对象中的每个 key 都是一个 CSS 类名，如果它的 value 是 true，这个类就会被加上，否则就会被移除
 
@@ -651,9 +482,9 @@ setCurrentClasses() {
 ```html
 <div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### NgStyle
+### NgStyle
 
  * NgStyle 需要绑定到一个 key:value 控制对象。 对象的每个 key 是样式名，它的 value 是能用于这个样式的任何值
 
@@ -675,9 +506,9 @@ setCurrentStyles() {
   This div is initially italic, normal weight, and extra large (24px).
 </div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### NgModule
+### NgModule
 
  * 在使用 ngModel 指令进行双向数据绑定之前，你必须导入 FormsModule 并把它添加到 Angular 模块的 imports 列表中
 
@@ -706,9 +537,9 @@ export class AppModule { }
   [ngModel]="currentHero.name"
   (ngModelChange)="currentHero.name=$event">
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 内置结构型指令
+## 内置结构型指令
 
  * 结构型指令的职责是 HTML 布局，它们塑造或重塑 DOM 的结构
  * 主要介绍下面三个指令
@@ -716,9 +547,9 @@ export class AppModule { }
     * NgSwitch - 一组指令，用来在多个可选视图之间切换
     * NgForOf - 对列表中的每个条目重复套种同一个模板
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### NgIf
+### NgIf
 
  * 隐藏子树与 NgIf 不通
     * 隐藏子树时，它仍然留在 DOM 中，NgIf 为 false 时，Angular 会从 DOM 中物理移除这个元素子树，节约资源
@@ -743,9 +574,9 @@ export class AppModule { }
 <div *ngIf="currentHero">Hello, {{currentHero.name}}</div>
 <div *ngIf="nullHero">Hello, {{nullHero.name}}</div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### NgForOf
+### NgForOf
 
  * 展开显示列表
 
@@ -756,9 +587,9 @@ export class AppModule { }
 <!-- 应用在组件元素上 -->
 <app-hero-detail *ngFor="let hero of heroes" [hero]="hero"></app-hero-detail>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 模板输入变量
+### 模板输入变量
 
  * hero 前的 let 关键字创建了一个名叫 hero 的模板输入变量
  * 你可以在 ngFor 的宿主元素（及其子元素）中引用模板输入变量 hero
@@ -767,22 +598,22 @@ export class AppModule { }
 <div *ngFor="let hero of heroes">{{hero.name}}</div>
 <app-hero-detail *ngFor="let hero of heroes" [hero]="hero"></app-hero-detail>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 带索引的 *ngFor
+### 带索引的 *ngFor
 
  * NgFor 指令上下文中的 index 属性返回一个从零开始的索引，表示当前条目在迭代中的顺序
 
 ```html
 <div *ngFor="let hero of heroes; let i=index">{{i + 1}} - {{hero.name}}</div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 带 trackBy 的 *ngFor
+### 带 trackBy 的 *ngFor
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### NgSwitch 指令
+### NgSwitch 指令
 
  * NgSwitch 指令类似于 JavaScript 的 switch 语句。 它可以从多个可能的元素中根据switch 条件来显示某一个。 Angular 只会把选中的元素放进 DOM 中
  * NgSwitch 实际上包括三个相互协作的指令：NgSwitch、NgSwitchCase 和 NgSwitchDefault
@@ -797,9 +628,9 @@ export class AppModule { }
   <app-unknown-hero  *ngSwitchDefault           [hero]="currentHero"></app-unknown-hero>
 </div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 模板引用变量（#var）
+## 模板引用变量（#var）
 
  * 模板引用变量通常用来引用模板中的某个 DOM 元素，它还可以引用 Angular 组件或指令或 Web Component
  * 使用井号（#）来声明引用变量，或者 *ref-* 
@@ -823,9 +654,9 @@ export class AppModule { }
 <!-- button 标签中的 phone.value 值就是 input 标签输入的值-->
 <button (click)="callPhone(phone.value)">Call</button>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 输入和输出属性
+## 输入和输出属性
 
  * 输入属性是一个带用 @Input 修饰器的可设置属性，当它通过*属性绑定*的形式被绑定时，值会“流入”这个属性
  * 输出属性是一个带有 @Output 修饰器的可观察对象型的属性，这个属性几乎总是返回 Angular 的EventEmitter，当它通过*事件绑定*的形式被绑定时，值会“流出”这个属性
@@ -843,9 +674,9 @@ export class AppModule { }
 <app-hero-detail [hero]="currentHero" (deleteRequest)="deleteHero($event)">
 </app-hero-detail>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 声明输入与输出属性
+### 声明输入与输出属性
 
 ```ts
 // src/app/hero-detail.component.ts
@@ -857,9 +688,9 @@ export class AppModule { }
 <!-- hero-detail 组件声明了 hero 为输入属性，deleteRequest 为输出属性，所有使用不会报错 -->
 <app-hero-detail [hero]="currentHero" (deleteRequest)="deleteHero($event)"></app-hero-detail>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 输入还是输出
+### 输入还是输出
 
  * 输入属性通常指接受数据
  * 输出属性暴露事件产生者，如 EventEmitter 对象
@@ -871,9 +702,9 @@ export class AppModule { }
 <!-- 从 HeroDetailComponent 角度来看，HeroDetailComponent.deleteRequest 是个输出属性， 因为事件从那个属性流出，流向模板绑定语句中的处理器。 -->
 <app-hero-detail [hero]="currentHero" (deleteRequest)="deleteHero($event)"></app-hero-detail>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 给输入输出起别名
+### 给输入输出起别名
 
  * 让输入/输出属性的公共名字不同于内部名字
 
@@ -889,15 +720,15 @@ export class AppModule { }
   outputs: ['clicks:myClick']  // propertyName:alias
 })
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 模板表达式
+## 模板表达式
 
  * 模板表达式使用了 JavaScript 语法的子集
 
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 管道操作符 (|)
+### 管道操作符 (|)
 
  * 对表达式结果进行转换
  * 可以多个管道串联
@@ -919,18 +750,18 @@ export class AppModule { }
 <!-- 使用jsan -->
 <div>{{currentHero | json}}</div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 安全导航操作符(?.)和空属性路径
+### 安全导航操作符(?.)和空属性路径
 
 ```html
 <!-- 当 currentHero 的name 为空时，保护视图渲染器，让它免于失败  -->
 <!-- 支持长属性路径 current?.name?.age -->
 The current hero's name is {{currentHero?.name}}
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-#### 非空断言操作符 (!)
+### 非空断言操作符 (!)
 
 ```html
 <!--hero属性一定不为空，防止 Angular 编译器把你的模板转换成 TS 代码时，报错-->
@@ -938,9 +769,9 @@ The current hero's name is {{currentHero?.name}}
   The hero's name is {{hero!.name}}
 </div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-### 类型转换
+## 类型转换
 
  * 消除绑定类型时，类型不匹配报错
  * 使用 $any 把表达式转换为 any 类型
@@ -951,22 +782,5 @@ The current hero's name is {{currentHero?.name}}
   The hero's marker is {{$any(hero).marker}}
 </div>
 ```
-[Back to TOC](#组件与模板)
+[Back to TOC](#模板语法)
 
-## 生命周期钩子
-
-## 组件交互
-
-## 组件样式
-
-## Angular 自定义元素
-
-## 动态组件
-
-## 属性型组件指令
-
-## 结构型指令
-
-## 管道
-
-## 动画
