@@ -1,5 +1,36 @@
 # Observable 与 RxJS
 
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+- [Observable 与 RxJS](#observable-%E4%B8%8E-rxjs)
+  - [可观察对象 (Observable)](#%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1-observable)
+    - [基本用法和词汇](#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E8%AF%8D%E6%B1%87)
+    - [定义观察者](#%E5%AE%9A%E4%B9%89%E8%A7%82%E5%AF%9F%E8%80%85)
+    - [订阅](#%E8%AE%A2%E9%98%85)
+    - [创建可观察对象](#%E5%88%9B%E5%BB%BA%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1)
+    - [多播](#%E5%A4%9A%E6%92%AD)
+    - [错误处理](#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86)
+  - [RxJS 库](#rxjs-%E5%BA%93)
+    - [创建可观察对象的函数](#%E5%88%9B%E5%BB%BA%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0)
+    - [操作符](#%E6%93%8D%E4%BD%9C%E7%AC%A6)
+      - [常用操作符](#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6)
+    - [错误处理](#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86)
+      - [重试失败的可观察对象](#%E9%87%8D%E8%AF%95%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1)
+    - [可观察对象的命名约定](#%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%91%BD%E5%90%8D%E7%BA%A6%E5%AE%9A)
+  - [Angular 中的可观察对象](#angular-%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1)
+    - [事件发送器 EventEmitter](#%E4%BA%8B%E4%BB%B6%E5%8F%91%E9%80%81%E5%99%A8-eventemitter)
+    - [HTTP](#http)
+    - [Async 管道](#async-%E7%AE%A1%E9%81%93)
+    - [路由器 (router)](#%E8%B7%AF%E7%94%B1%E5%99%A8-router)
+    - [响应式表单(reactive forms)](#%E5%93%8D%E5%BA%94%E5%BC%8F%E8%A1%A8%E5%8D%95reactive-forms)
+  - [用法实战](#%E7%94%A8%E6%B3%95%E5%AE%9E%E6%88%98)
+    - [输入提示 (type-ahead) 建议](#%E8%BE%93%E5%85%A5%E6%8F%90%E7%A4%BA-type-ahead-%E5%BB%BA%E8%AE%AE)
+    - [指数化退避](#%E6%8C%87%E6%95%B0%E5%8C%96%E9%80%80%E9%81%BF)
+  - [与其它技术的比较](#%E4%B8%8E%E5%85%B6%E5%AE%83%E6%8A%80%E6%9C%AF%E7%9A%84%E6%AF%94%E8%BE%83)
+    - [可观察对象vs.承诺](#%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1vs%E6%89%BF%E8%AF%BA)
+    - [可观察对象与承诺实现同样功能接口对比如下](#%E5%8F%AF%E8%A7%82%E5%AF%9F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%89%BF%E8%AF%BA%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%A0%B7%E5%8A%9F%E8%83%BD%E6%8E%A5%E5%8F%A3%E5%AF%B9%E6%AF%94%E5%A6%82%E4%B8%8B)
+
 ## 可观察对象 (Observable)
 
  * 可观察对象支持在应用中的发布者和订阅者之间传递消息

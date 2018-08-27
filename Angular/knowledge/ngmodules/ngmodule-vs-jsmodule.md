@@ -1,3 +1,11 @@
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+- [JS 模块 vs NgModule](#js-%E6%A8%A1%E5%9D%97-vs-ngmodule)
+  - [JS Module](#js-module)
+  - [NgModules](#ngmodules)
+  - [NgModule 类与 JS 模块对比](#ngmodule-%E7%B1%BB%E4%B8%8E-js-%E6%A8%A1%E5%9D%97%E5%AF%B9%E6%AF%94)
+
+
 # JS 模块 vs NgModule
 
  * Angular 应用同时依赖 JS Module 和 NgModule

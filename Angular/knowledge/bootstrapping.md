@@ -1,5 +1,16 @@
 # 引导启动
 
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+- [引导启动](#%E5%BC%95%E5%AF%BC%E5%90%AF%E5%8A%A8)
+  - [启动过程](#%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B)
+  - [declarations 数组](#declarations-%E6%95%B0%E7%BB%84)
+    - [通过 @NgModule 使用指令](#%E9%80%9A%E8%BF%87-ngmodule-%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4)
+  - [imports 数组](#imports-%E6%95%B0%E7%BB%84)
+  - [providers 数组](#providers-%E6%95%B0%E7%BB%84)
+  - [bootstrap 数组](#bootstrap-%E6%95%B0%E7%BB%84)
+
 ## 启动过程
 
  * NgModule 用于描述应用的各个部分如何组织在一起，每个应用至少有一个 Angular 模块，根模块是用来启动此应用的模块，命名通常为 AppModule

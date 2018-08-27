@@ -1,3 +1,10 @@
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+- [NgModule 简介](#ngmodule-%E7%AE%80%E4%BB%8B)
+- [Angular 模块化](#angular-%E6%A8%A1%E5%9D%97%E5%8C%96)
+- [基本的模块](#%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%A8%A1%E5%9D%97)
+
+
 # NgModule 简介
 
  * Angular 模块(NgModule) 用于配置注入器和编译器，并把相关的东西组织在一起

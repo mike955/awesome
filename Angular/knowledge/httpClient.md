@@ -21,6 +21,12 @@
         - [发起一个 POST 请求](#%E5%8F%91%E8%B5%B7%E4%B8%80%E4%B8%AA-post-%E8%AF%B7%E6%B1%82)
         - [发起 DELETE 请求](#%E5%8F%91%E8%B5%B7-delete-%E8%AF%B7%E6%B1%82)
         - [发起 PUT 请求](#%E5%8F%91%E8%B5%B7-put-%E8%AF%B7%E6%B1%82)
+    - [高级用法](#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95)
+        - [配置请求](#%E9%85%8D%E7%BD%AE%E8%AF%B7%E6%B1%82)
+        - [请求的防抖](#%E8%AF%B7%E6%B1%82%E7%9A%84%E9%98%B2%E6%8A%96)
+            - [switchMap()](#switchmap)
+        - [拦截请求和响应](#%E6%8B%A6%E6%88%AA%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94)
+        - [监听进度事件](#%E7%9B%91%E5%90%AC%E8%BF%9B%E5%BA%A6%E4%BA%8B%E4%BB%B6)
 
 ## 准备工作
 
@@ -303,3 +309,89 @@ updateHero (hero: Hero): Observable<Hero> {
     );
 }
 ```
+
+## 高级用法
+
+### 配置请求
+
+ * 可以对 HttpClient 方法最后一个参数中的配置对象进行配
+
+```ts
+// 修改请求头
+httpOptions.headers =
+  httpOptions.headers.set('Authorization', 'my-new-auth-token');
+
+// 添加 URL 参数搜索
+/* GET heroes whose name contains search term */
+searchHeroes(term: string): Observable<Hero[]> {
+  term = term.trim();
+
+  // Add safe, URL encoded search parameter if there is a search term
+  const options = term ?
+   { params: new HttpParams().set('name', term) } : {};
+
+  return this.http.get<Hero[]>(this.heroesUrl, options)
+    .pipe(
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    );
+}
+```
+
+### 请求的防抖
+
+```html
+<!-- (keyup)事件绑定把每次点击都发送给组件的 search() 方法 -->
+<input (keyup)="search($event.target.value)" id="name" placeholder="Search"/>
+
+<ul>
+  <li *ngFor="let package of packages$ | async">
+    <b>{{package.name}} v.{{package.version}}</b> -
+    <i>{{package.description}}</i>
+  </li>
+</ul>
+```
+
+```ts
+withRefresh = false;
+packages$: Observable<NpmPackageInfo[]>;
+private searchText$ = new Subject<string>();
+
+search(packageName: string) {
+  this.searchText$.next(packageName);
+}
+
+ngOnInit() {
+  this.packages$ = this.searchText$.pipe(
+    debounceTime(500),
+    distinctUntilChanged(),
+    switchMap(packageName =>
+      this.searchService.search(packageName, this.withRefresh))
+  );
+}
+
+constructor(private searchService: PackageSearchService) { }
+```
+searchText$ 是一个序列，办好用户输入到搜索框中的所有值，它定义成了 RxJS 的 Subject对象，这表示它是一个多播 Observable，同时还可以自行调用 next(value) 来产生值。
+
+除了把每个 serachText 的值都直接转发给 PackageSearchService 之外，ngOnInit() 中的代码还通过下列三个操作符对这些搜索值进行管道处理：
+  * debounceTime(500) - 等待，知道用户停止输入 500 毫秒
+  * distinctUntilChanged() - 等待，知道搜索内容发生了变化
+  * switchMap() - 把搜索请求发送给服务
+
+代码把 pachages$ 设置成了使用搜索结果组合出的 Observable 对象，模板中使用 AsyncPipe 订阅了 package$，一旦搜索结果的值发回来了，搜索值才会传给服务
+
+#### switchMap()
+
+ * switchMap() 操作符有三个重要特征
+    * 它的参数是一个返回 Observable 的函数，PackageSearchService.search 会返回 Observable，其它数据服务也一样
+    * 如果以前的搜索结果仍然是在途状态，它会取消哪个请求，并发起这个新的搜索
+    * 它会按照原始的请求顺序返回这些服务的响应，不用关心服务器实际上是乱序返回的它们
+
+### 拦截请求和响应
+
+ * HTTP 拦截机制是 @angular/common/http 中的主要特性之一
+ * 通过拦截机制，可以声明一些拦截器，用它们监视和转换从应用发送到服务器的 HTTP 请求
+ * 拦截器还可以用监视和转换从服务器返回到本应用的那些响应
+ * 多个选择器会构成一个“请求/响应处理器”的双向链表
+
+### 监听进度事件
