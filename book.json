@@ -1,0 +1,9 @@
+{
+    "plugins": [
+        "toggle-chapters",
+        "expandable-chapters-small",
+        "splitter",
+        "-lunr", "-search", "search-plus",
+        "-highlight", "prism", "prism-themes"
+    ]
+}

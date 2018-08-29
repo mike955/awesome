@@ -1,0 +1,1603 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>组件交互 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="component-styles.html" />
+    
+    
+    <link rel="prev" href="lifecycle-hooks.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Angular
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../architecture.html">
+            
+                <a href="../architecture.html">
+            
+                    
+                    architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../bootstrapping.html">
+            
+                <a href="../bootstrapping.html">
+            
+                    
+                    bootstrapping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../httpClient.html">
+            
+                <a href="../httpClient.html">
+            
+                    
+                    httpClient
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Observable&RxJS.html">
+            
+                <a href="../Observable&RxJS.html">
+            
+                    
+                    Observable&RxJS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../router.html">
+            
+                <a href="../router.html">
+            
+                    
+                    router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ngmodules/">
+            
+                <a href="../ngmodules/">
+            
+                    
+                    Angular 模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../ngmodules/ngmodules.html">
+            
+                <a href="../ngmodules/ngmodules.html">
+            
+                    
+                    NgModule 简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../ngmodules/ngmodule-vs-jsmodule.html">
+            
+                <a href="../ngmodules/ngmodule-vs-jsmodule.html">
+            
+                    
+                    JS 模块 vs NgModule
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.3" data-path="../ngmodules/frequent-ngmodules.html">
+            
+                <a href="../ngmodules/frequent-ngmodules.html">
+            
+                    
+                    常用模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.4" data-path="../ngmodules/module-types.html">
+            
+                <a href="../ngmodules/module-types.html">
+            
+                    
+                    特性模块的分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.5" data-path="../ngmodules/entry-components.html">
+            
+                <a href="../ngmodules/entry-components.html">
+            
+                    
+                    入口文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.6" data-path="../ngmodules/feature-modules.html">
+            
+                <a href="../ngmodules/feature-modules.html">
+            
+                    
+                    特性模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.7" data-path="../ngmodules/providers.html">
+            
+                <a href="../ngmodules/providers.html">
+            
+                    
+                    服务提供商
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.8" data-path="../ngmodules/singleton-services.html">
+            
+                <a href="../ngmodules/singleton-services.html">
+            
+                    
+                    单例应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    组件与模版
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.7.1" data-path="isplaying-data.md">
+            
+                <span>
+            
+                    
+                    显示数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.2" data-path="lifecycle-hooks.html">
+            
+                <a href="lifecycle-hooks.html">
+            
+                    
+                    生命周期钩子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7.3" data-path="component-interaction.html">
+            
+                <a href="component-interaction.html">
+            
+                    
+                    组件交互
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.4" data-path="component-styles.html">
+            
+                <a href="component-styles.html">
+            
+                    
+                    组件样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.5" data-path="elements.html">
+            
+                <a href="elements.html">
+            
+                    
+                    Angular 自定义元素
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.6" data-path="dynamic-component-loader.html">
+            
+                <a href="dynamic-component-loader.html">
+            
+                    
+                    动态组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.7" data-path="attribute-directives.html">
+            
+                <a href="attribute-directives.html">
+            
+                    
+                    属性型指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.8" data-path="structural-directives.html">
+            
+                <a href="structural-directives.html">
+            
+                    
+                    结构型指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.9" data-path="pipes.html">
+            
+                <a href="pipes.html">
+            
+                    
+                    管道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7.10" data-path="animations.html">
+            
+                <a href="animations.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../dependency-injection/">
+            
+                <a href="../dependency-injection/">
+            
+                    
+                    依赖注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.8.1" data-path="../dependency-injection/dependency-injection-pattern.html">
+            
+                <a href="../dependency-injection/dependency-injection-pattern.html">
+            
+                    
+                    依赖注入模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.2" data-path="../dependency-injection/dependency-injection.html">
+            
+                <a href="../dependency-injection/dependency-injection.html">
+            
+                    
+                    Angular 依赖注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.3" data-path="../dependency-injection/hierarchical-dependency-injection.html">
+            
+                <a href="../dependency-injection/hierarchical-dependency-injection.html">
+            
+                    
+                    多级注入器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8.4" data-path="../dependency-injection/ependency-injection-in-action.md">
+            
+                <span>
+            
+                    
+                    DI 实用技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../testing.html">
+            
+                <a href="../testing.html">
+            
+                    
+                    testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../Devops/">
+            
+                <a href="../../../Devops/">
+            
+                    
+                    Devops
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../Devops/microservices/">
+            
+                <a href="../../../Devops/microservices/">
+            
+                    
+                    microservices
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../../Devops/microservices/consul+consul_template.html">
+            
+                <a href="../../../Devops/microservices/consul+consul_template.html">
+            
+                    
+                    consul+consul_template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../../Devops/jenkens_install_centos.html">
+            
+                <a href="../../../Devops/jenkens_install_centos.html">
+            
+                    
+                    Jenkins安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../Linux/">
+            
+                <a href="../../../Linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../../Linux/crontab.html">
+            
+                <a href="../../../Linux/crontab.html">
+            
+                    
+                    定时任务 crontab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../../Linux/scp.html">
+            
+                <a href="../../../Linux/scp.html">
+            
+                    
+                    跨机器复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../../Linux/term_proxy.html">
+            
+                <a href="../../../Linux/term_proxy.html">
+            
+                    
+                    命令行配置代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../../Docker/Docker/">
+            
+                <a href="../../../Docker/Docker/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../../../Docker/Docker/docker-registry.html">
+            
+                <a href="../../../Docker/Docker/docker-registry.html">
+            
+                    
+                    docker-registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="../../../Docker/Docker/install_docker.html">
+            
+                <a href="../../../Docker/Docker/install_docker.html">
+            
+                    
+                    install_docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../../Docker/Docker-compose/">
+            
+                <a href="../../../Docker/Docker-compose/">
+            
+                    
+                    Docker-compose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../../../Docker/Docker-compose/install_docker-compose.html">
+            
+                <a href="../../../Docker/Docker-compose/install_docker-compose.html">
+            
+                    
+                    install_docker-compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../../../Docker/Docker-compose/example.html">
+            
+                <a href="../../../Docker/Docker-compose/example.html">
+            
+                    
+                    example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Node
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../../Node/npm/">
+            
+                <a href="../../../Node/npm/">
+            
+                    
+                    npm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1.1" data-path="../../../Node/npm/config_registry.html">
+            
+                <a href="../../../Node/npm/config_registry.html">
+            
+                    
+                    配置淘宝 npm 地址
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.1.2" data-path="../../../Node/npm/npm_registry.html">
+            
+                <a href="../../../Node/npm/npm_registry.html">
+            
+                    
+                    搭建 npm 私库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../../Node/test/">
+            
+                <a href="../../../Node/test/">
+            
+                    
+                    test
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.2.1" data-path="../../../Node/test/supertest.html">
+            
+                <a href="../../../Node/test/supertest.html">
+            
+                    
+                    http 测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2.2" data-path="../../../Node/test/mocha+chai.html">
+            
+                <a href="../../../Node/test/mocha+chai.html">
+            
+                    
+                    mocha+chai
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Openresty
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../../Openresty/lua/">
+            
+                <a href="../../../Openresty/lua/">
+            
+                    
+                    lua
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1.1" data-path="../../../Openresty/lua/get_time.html">
+            
+                <a href="../../../Openresty/lua/get_time.html">
+            
+                    
+                    获取时间戳
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../../Openresty/nginx/">
+            
+                <a href="../../../Openresty/nginx/">
+            
+                    
+                    nginx
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.2.1" data-path="../../../Openresty/nginx/nginx_file_server.html">
+            
+                <a href="../../../Openresty/nginx/nginx_file_server.html">
+            
+                    
+                    nginx配置为静态文件服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../../Openresty/install_openresty.html">
+            
+                <a href="../../../Openresty/install_openresty.html">
+            
+                    
+                    Openresty 安装脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >组件交互</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;</h1>
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+<ul>
+<li><a href="#%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92">&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;</a><ul>
+<li><a href="#%E9%80%9A%E8%BF%87%E8%BE%93%E5%85%A5%E5%9E%8B%E7%BB%91%E5%AE%9A%E6%8A%8A%E6%95%B0%E6%8D%AE%E4%BB%8E%E7%88%B6%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%85%A5%E5%88%B0%E5%AD%90%E7%BB%84%E4%BB%B6">&#x901A;&#x8FC7;&#x8F93;&#x5165;&#x578B;&#x7ED1;&#x5B9A;&#x628A;&#x6570;&#x636E;&#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x5165;&#x5230;&#x5B50;&#x7EC4;&#x4EF6;</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87-setter-%E6%88%AA%E5%90%AC%E8%BE%93%E5%85%A5%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9A%84%E5%8F%98%E5%8C%96">&#x901A;&#x8FC7; setter &#x622A;&#x542C;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x53D8;&#x5316;</a></li>
+<li><a href="#%E9%80%9A%E8%BF%87-ngonchange%E6%9D%A5%E6%88%AA%E5%90%AC%E8%BE%93%E5%85%A5%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9A%84%E5%8F%98%E5%8C%96">&#x901A;&#x8FC7; ngOnChange()&#x6765;&#x622A;&#x542C;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x53D8;&#x5316;</a></li>
+<li><a href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E7%9B%91%E5%90%AC%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BA%8B%E4%BB%B6">&#x7236;&#x7EC4;&#x4EF6;&#x76D1;&#x542C;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x4E8B;&#x4EF6;</a></li>
+<li><a href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E4%B8%8E%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F%E4%BA%92%E5%8A%A8">&#x7236;&#x7EC4;&#x4EF6;&#x4E0E;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x4E92;&#x52A8;</a></li>
+<li><a href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E8%B0%83%E7%94%A8-viewchild">&#x7236;&#x7EC4;&#x4EF6;&#x8C03;&#x7528; @ViewChild()</a></li>
+<li><a href="#%E7%88%B6%E7%BB%84%E4%BB%B6%E5%92%8C%E5%AD%90%E7%BB%84%E4%BB%B6%E9%80%9A%E8%BF%87%E6%9C%8D%E5%8A%A1%E6%9D%A5%E9%80%9A%E8%AE%AF">&#x7236;&#x7EC4;&#x4EF6;&#x548C;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x670D;&#x52A1;&#x6765;&#x901A;&#x8BAF;</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x901A;&#x8FC7;&#x8F93;&#x5165;&#x578B;&#x7ED1;&#x5B9A;&#x628A;&#x6570;&#x636E;&#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x5165;&#x5230;&#x5B50;&#x7EC4;&#x4EF6;">&#x901A;&#x8FC7;&#x8F93;&#x5165;&#x578B;&#x7ED1;&#x5B9A;&#x628A;&#x6570;&#x636E;&#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x5165;&#x5230;&#x5B50;&#x7EC4;&#x4EF6;</h2>
+<p>&#x5B50;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">// app/hero-child.component.ts
+import { Component, Input } from &quot;@angular/core&quot;;
+
+import { Hero } from &quot;./hero&quot;;
+
+@Component({
+  selector: &quot;app-hero-child&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>{{hero.name}} says:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>I, {{hero.name}}, am at your service, {{masterName}}.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class HeroChildComponent {
+  @Input()
+  hero: Hero;
+  @Input(&quot;master&quot;)
+  masterName: string; // master &#x4E3A;&#x522B;&#x540D;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;
+}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">// app/hero-parent.component.ts
+import { Component } from &quot;@angular/core&quot;;
+
+import { HEROES } from &quot;./hero&quot;;
+
+@Component({
+  selector: &quot;app-hero-parent&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>{{master}} controls {{heroes.length}} heroes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-hero-child</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>let hero of heroes<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">[hero]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>hero<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">[master]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>master<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-hero-child</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class HeroParentComponent {
+  heroes = HEROES;
+  master = &quot;Master&quot;;
+}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6; HeroParentComponent &#x628A;&#x5B50;&#x7EC4;&#x4EF6;&#x7684; HeroChildComponent &#x653E;&#x5230; *ngFor &#x5FAA;&#x73AF;&#x5668;&#x4E2D;&#xFF0C;&#x628A;&#x81EA;&#x5DF1;&#x7684; master &#x5B57;&#x7B26;&#x4E32;&#x5C5E;&#x6027;&#x7ED1;&#x5B9A;&#x5230;&#x5B50;&#x7EC4;&#x4EF6;&#x7684; master &#x522B;&#x540D;&#x4E0A;&#xFF0C;&#x5E76;&#x628A;&#x6BCF;&#x4E2A;&#x5FAA;&#x73AF;&#x7684; hero &#x5B9E;&#x4F8B;&#x7ED1;&#x5B9A;&#x5230;&#x5B50;&#x7EC4;&#x4EF6;&#x7684; hero &#x5C5E;&#x6027;</p>
+<p><a href="#&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">Back TO TOC</a></p>
+<h2 id="&#x901A;&#x8FC7;-setter-&#x622A;&#x542C;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x53D8;&#x5316;">&#x901A;&#x8FC7; setter &#x622A;&#x542C;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x53D8;&#x5316;</h2>
+<ul>
+<li>&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x7684; setter&#xFF0C;&#x4EE5;&#x62E6;&#x622A;&#x7236;&#x7EC4;&#x4EF6;&#x4E2D;&#x503C;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5E76;&#x624D;&#x53BB;&#x884C;&#x52A8;</li>
+</ul>
+<p>&#x5B50;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">import { Component, Input } from &quot;@angular/core&quot;;
+
+@Component({
+  selector: &quot;app-name-child&quot;,
+  template: &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>&quot;{{name}}&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>&apos;
+})
+export class NameChildComponent {
+  private _name = &quot;&quot;;
+
+  @Input()
+  set name(name: string) {
+    this._name = (name &amp;&amp; name.trim()) || &quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>no</span> <span class="token attr-name">name</span> <span class="token attr-name">set</span><span class="token punctuation">&gt;</span></span>&quot;;
+  }
+
+  get name(): string {
+    return this._name;
+  }
+}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">import { Component } from &quot;@angular/core&quot;;
+
+@Component({
+  selector: &quot;app-name-parent&quot;,
+  template: `
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Master controls {{names.length}} names<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-name-child</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>let name of names<span class="token punctuation">&quot;</span></span> <span class="token attr-name">[name]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>name<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-name-child</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class NameParentComponent {
+  // Displays &apos;Mr. IQ&apos;, &apos;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>no</span> <span class="token attr-name">name</span> <span class="token attr-name">set</span><span class="token punctuation">&gt;</span></span>&apos;, &apos;Bombasto&apos;
+  names = [&quot;Mr. IQ&quot;, &quot;   &quot;, &quot;  Bombasto  &quot;];
+}
+</code></pre>
+<p>&#x5B50;&#x7EC4;&#x4EF6; NameChildComponent &#x7684;&#x8F93;&#x5165;&#x5C5E;&#x6027; name &#x4E0A;&#x7684;&#x8FD9;&#x4E2A; setter&#xFF0C;&#x4F1A; trim &#x6389;&#x540D;&#x5B57;&#x91CC;&#x7684;&#x7A7A;&#x683C;&#xFF0C;&#x5E76;&#x628A;&#x7A7A;&#x503C;&#x66FF;&#x6362;&#x6210;&#x9ED8;&#x8BA4;&#x5B57;&#x7B26;&#x4E32;</p>
+<p><a href="#&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">Back TO TOC</a></p>
+<h2 id="&#x901A;&#x8FC7;-ngonchange&#x6765;&#x622A;&#x542C;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x53D8;&#x5316;">&#x901A;&#x8FC7; ngOnChange()&#x6765;&#x622A;&#x542C;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x53D8;&#x5316;</h2>
+<ul>
+<li>&#x4F7F;&#x7528; OnChanges &#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x63A5;&#x53E3;&#x7684; ngChanges() &#x65B9;&#x6CD5;&#x6765;&#x76D1;&#x6D4B;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x53D8;&#x5316;&#x5E76;&#x4F5C;&#x51FA;&#x56DE;&#x5E94;</li>
+<li>&#x5F53;&#x9700;&#x8981;&#x68C0;&#x6D4B;&#x591A;&#x4E2A;&#x3001;&#x4EA4;&#x4E92;&#x5F0F;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x672C;&#x65B9;&#x6CD5;&#x6BD4;&#x7528;&#x5C5E;&#x6027;&#x7684; setter &#x66F4;&#x5408;&#x9002;</li>
+</ul>
+<p>&#x5B50;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">import { Component, Input, OnChanges, SimpleChange } from &quot;@angular/core&quot;;
+
+@Component({
+  selector: &quot;app-version-child&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Version {{major}}.{{minor}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">&gt;</span></span>Change log:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>let change of changeLog<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{change}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class VersionChildComponent implements OnChanges {
+  @Input()
+  major: number;
+  @Input()
+  minor: number;
+  changeLog: string[] = [];
+
+  ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    let log: string[] = [];
+    for (let propName in changes) {
+      let changedProp = changes[propName];
+      let to = JSON.stringify(changedProp.currentValue);
+      if (changedProp.isFirstChange()) {
+        log.push(`Initial value of ${propName} set to ${to}`);
+      } else {
+        let from = JSON.stringify(changedProp.previousValue);
+        log.push(`${propName} changed from ${from} to ${to}`);
+      }
+    }
+    this.changeLog.push(log.join(&quot;, &quot;));
+  }
+}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">import { Component } from &quot;@angular/core&quot;;
+
+@Component({
+  selector: &quot;app-version-parent&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Source code version<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>newMinor()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>New minor version<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>newMajor()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>New major version<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-version-child</span> <span class="token attr-name">[major]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>major<span class="token punctuation">&quot;</span></span> <span class="token attr-name">[minor]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>minor<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-version-child</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class VersionParentComponent {
+  major = 1;
+  minor = 23;
+
+  newMinor() {
+    this.minor++;
+  }
+
+  newMajor() {
+    this.major++;
+    this.minor = 0;
+  }
+}
+</code></pre>
+<p>VersionChildComponent &#x4F1A;&#x76D1;&#x6D4B;&#x8F93;&#x5165;&#x5C5E;&#x6027; major &#x548C; minor &#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5E76;&#x628A;&#x8FD9;&#x4E9B;&#x53D8;&#x5316;&#x7F16;&#x5199;&#x6210;&#x65E5;&#x5FD7;&#x4EE5;&#x62A5;&#x544A;&#x8FD9;&#x4E9B;&#x53D8;&#x5316;&#x3002;VersionParentComponent &#x63D0;&#x4F9B; minor &#x548C; major &#x503C;&#xFF0C;&#x628A;&#x4FEE;&#x6539;&#x5B83;&#x4EEC;&#x503C;&#x7684;&#x65B9;&#x6CD5;&#x7ED1;&#x5B9A;&#x5230;&#x6309;&#x94AE;&#x4E0A;</p>
+<p><a href="#&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">Back TO TOC</a></p>
+<h2 id="&#x7236;&#x7EC4;&#x4EF6;&#x76D1;&#x542C;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x4E8B;&#x4EF6;">&#x7236;&#x7EC4;&#x4EF6;&#x76D1;&#x542C;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x4E8B;&#x4EF6;</h2>
+<ul>
+<li>&#x5B50;&#x7EC4;&#x4EF6;&#x66B4;&#x9732;&#x4E00;&#x4E2A; EventEmitter &#x5C5E;&#x6027;&#xFF0C;&#x5F53;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x5B50;&#x7EC4;&#x4EF6;&#x5229;&#x7528;&#x8BE5;&#x5C5E;&#x6027; emits(&#x5411;&#x4E0A;&#x5F39;&#x5C04;)&#x4E8B;&#x4EF6;&#x3002;&#x7236;&#x7EC4;&#x4EF6;&#x7ED1;&#x5B9A;&#x5230;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x5728;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#x4F5C;&#x51FA;&#x56DE;&#x5E94;</li>
+<li>&#x6846;&#x67B6;(Angular)&#x628A;&#x4E8B;&#x4EF6;&#x53C2;&#x6570;(&#x7528; $event &#x8868;&#x793A;)&#x4F20;&#x7ED9;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5904;&#x7406;</li>
+</ul>
+<p>&#x5B50;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">// &#x5B50;&#x7EC4;&#x4EF6;&#x7684; EventEmitter &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x5C5E;&#x6027;&#xFF0C;&#x901A;&#x5E38;&#x5E26;&#x6709;@Output &#x88C5;&#x9970;&#x5668;&#xFF0C;&#x5C31;&#x50CF;&#x5728; VoterComponent &#x4E2D;&#x770B;&#x5230;&#x7684;
+// &#x70B9;&#x51FB;&#x6309;&#x94AE;&#x4F1A;&#x89E6;&#x53D1; true &#x6216; false(&#x5E03;&#x5C14;&#x578B;&#x6709;&#x6548;&#x8F7D;&#x8377;)&#x7684;&#x4E8B;&#x4EF6;
+import { Component, EventEmitter, Input, Output } from &quot;@angular/core&quot;;
+
+@Component({
+  selector: &quot;app-voter&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span><span class="token punctuation">&gt;</span></span>{{name}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>vote(true)<span class="token punctuation">&quot;</span></span>  <span class="token attr-name">[disabled]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>didVote<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Agree<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>vote(false)<span class="token punctuation">&quot;</span></span> <span class="token attr-name">[disabled]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>didVote<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Disagree<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class VoterComponent {
+  @Input()
+  name: string;
+  @Output()
+  voted = new EventEmitter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>boolean</span><span class="token punctuation">&gt;</span></span>();
+  didVote = false;
+
+  vote(agreed: boolean) {
+    this.voted.emit(agreed);
+    this.didVote = true;
+  }
+}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">// &#x7236;&#x7EC4;&#x4EF6; VoteTakerComponent &#x7ED1;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x5668;(onVoted())&#xFF0C;&#x7528;&#x6765;&#x54CD;&#x5E94;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x4E8B;&#x4EF6;($event)&#x5E76;&#x66F4;&#x65B0;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x5668;
+import { Component } from &quot;@angular/core&quot;;
+
+@Component({
+  selector: &quot;app-vote-taker&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Should mankind colonize the Universe?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Agree: {{agreed}}, Disagree: {{disagreed}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-voter</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>let voter of voters<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">[name]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>voter<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">(voted)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>onVoted($event)<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-voter</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class VoteTakerComponent {
+  agreed = 0;
+  disagreed = 0;
+  voters = [&quot;Mr. IQ&quot;, &quot;Ms. Universe&quot;, &quot;Bombasto&quot;];
+
+  onVoted(agreed: boolean) {
+    agreed ? this.agreed++ : this.disagreed++;
+  }
+}
+</code></pre>
+<p><a href="#&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">Back TO TOC</a></p>
+<h2 id="&#x7236;&#x7EC4;&#x4EF6;&#x4E0E;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x4E92;&#x52A8;">&#x7236;&#x7EC4;&#x4EF6;&#x4E0E;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x4E92;&#x52A8;</h2>
+<ul>
+<li>&#x7236;&#x7EC4;&#x4EF6;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x6765;&#x8BFB;&#x53D6;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x6216;&#x8C03;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x4F46;&#x53EF;&#x4EE5;&#x5728;&#x7236;&#x7EC4;&#x4EF6;&#x6A21;&#x677F;&#x91CC;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x6765;&#x4EE3;&#x8868;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x6765;&#x8BFB;&#x53D6;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x8C03;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;</li>
+</ul>
+<p>&#x5B50;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">// &#x5B50;&#x7EC4;&#x4EF6; CountdownTimerComponent &#x8FDB;&#x884C;&#x5012;&#x8BA1;&#x65F6;&#xFF0C;&#x5F52;&#x96F6;&#x65F6;&#x53D1;&#x5C04;&#x4E00;&#x4E2A;&#x5BFC;&#x5F39;&#x3002;start &#x548C; stop &#x65B9;&#x6CD5;&#x8D1F;&#x8D23;&#x63A7;&#x5236;&#x65F6;&#x949F;&#x5E76;&#x5728;&#x6A21;&#x677F;&#x91CC;&#x663E;&#x793A;&#x5012;&#x8BA1;&#x65F6;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;
+import { Component, OnDestroy, OnInit } from &quot;@angular/core&quot;;
+
+@Component({
+  selector: &quot;app-countdown-timer&quot;,
+  template: &quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>{{message}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>&quot;
+})
+export class CountdownTimerComponent implements OnInit, OnDestroy {
+  intervalId = 0;
+  message = &quot;&quot;;
+  seconds = 11;
+
+  clearTimer() {
+    clearInterval(this.intervalId);
+  }
+
+  ngOnInit() {
+    this.start();
+  }
+  ngOnDestroy() {
+    this.clearTimer();
+  }
+
+  start() {
+    this.countDown();
+  }
+  stop() {
+    this.clearTimer();
+    this.message = `Holding at T-${this.seconds} seconds`;
+  }
+
+  private countDown() {
+    this.clearTimer();
+    this.intervalId = window.setInterval(() =&gt; {
+      this.seconds -= 1;
+      if (this.seconds === 0) {
+        this.message = &quot;Blast off!&quot;;
+      } else {
+        if (this.seconds &lt; 0) {
+          this.seconds = 10;
+        } // reset
+        this.message = `T-${this.seconds} seconds and counting`;
+      }
+    }, 1000);
+  }
+}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">import { Component } from &quot;@angular/core&quot;;
+import { CountdownTimerComponent } from &quot;./countdown-timer.component&quot;;
+
+@Component({
+  selector: &quot;app-countdown-parent-lv&quot;,
+  template: `
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Countdown to Liftoff (via local variable)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>timer.start()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Start<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>timer.stop()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Stop<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>seconds<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{timer.seconds}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-countdown-timer</span> <span class="token attr-name">#timer</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-countdown-timer</span><span class="token punctuation">&gt;</span></span>
+  `,
+  styleUrls: [&quot;../assets/demo.css&quot;]
+})
+export class CountdownLocalVarParentComponent {}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x6570;&#x636E;&#x7ED1;&#x5B9A;&#x4F7F;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;&#x7684; start &#x548C; stop &#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5B50;&#x7EC4;&#x4EF6;&#x7684; seconds &#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x628A;&#x672C;&#x5730;&#x53D8;&#x91CF;(#timer)&#x653E;&#x5230;(<countdown-timer>)&#x6807;&#x7B7E;&#x4E2D;&#xFF0C;&#x7528;&#x6765;&#x4EE3;&#x8868;&#x5B50;&#x7EC4;&#x4EF6;&#x3002;&#x8FD9;&#x6837;&#x7236;&#x7EC4;&#x4EF6;&#x7684;&#x6A21;&#x677F;&#x5C31;&#x5F97;&#x5230;&#x4E86;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4E8E;&#x662F;&#x53EF;&#x4EE5;&#x5728;&#x7236;&#x7EC4;&#x4EF6;&#x7684;&#x6A21;&#x677F;&#x4E2D;&#x8BBF;&#x95EE;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;</countdown-timer></p>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x628A;&#x7236;&#x7EC4;&#x4EF6;&#x7684;&#x6309;&#x94AE;&#x7ED1;&#x5B9A;&#x5230;&#x5B50;&#x7EC4;&#x4EF6;&#x7684; start &#x548C; stop &#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x7528;&#x63D2;&#x503C;&#x8868;&#x8FBE;&#x5F0F;&#x6765;&#x663E;&#x793A;&#x5B50;&#x7EC4;&#x4EF6;&#x7684; seconds &#x5C5E;&#x6027;&#x3002;</p>
+<p><a href="#&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">Back TO TOC</a></p>
+<h2 id="&#x7236;&#x7EC4;&#x4EF6;&#x8C03;&#x7528;-viewchild">&#x7236;&#x7EC4;&#x4EF6;&#x8C03;&#x7528; @ViewChild()</h2>
+<ul>
+<li>&#x5F53;&#x7236;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x8BFB;&#x53D6;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x6216;&#x8C03;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x5B50;&#x7EC4;&#x4EF6;&#x4F5C;&#x4E3A; ViewChild&#xFF0C;&#x6CE8;&#x5165;&#x5230;&#x7236;&#x7EC4;&#x4EF6;&#x91CC;&#x9762;</li>
+</ul>
+<p>&#x7236;&#x7EC4;&#x4EF6;</p>
+<pre class="language-"><code class="lang-ts">import { AfterViewInit, ViewChild } from &quot;@angular/core&quot;;
+import { Component } from &quot;@angular/core&quot;;
+import { CountdownTimerComponent } from &quot;./countdown-timer.component&quot;;
+
+@Component({
+  selector: &quot;app-countdown-parent-vc&quot;,
+  template: `
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Countdown to Liftoff (via ViewChild)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>start()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Start<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>stop()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Stop<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>seconds<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{ seconds() }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-countdown-timer</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-countdown-timer</span><span class="token punctuation">&gt;</span></span>
+  `,
+  styleUrls: [&quot;../assets/demo.css&quot;]
+})
+export class CountdownViewChildParentComponent implements AfterViewInit {
+  @ViewChild(CountdownTimerComponent)
+  private timerComponent: CountdownTimerComponent;
+
+  seconds() {
+    return 0;
+  }
+
+  ngAfterViewInit() {
+    // Redefine `seconds()` to get from the `CountdownTimerComponent.seconds` ...
+    // but wait a tick first to avoid one-time devMode
+    // unidirectional-data-flow-violation error
+    setTimeout(() =&gt; (this.seconds = () =&gt; this.timerComponent.seconds), 0);
+  }
+
+  start() {
+    this.timerComponent.start();
+  }
+  stop() {
+    this.timerComponent.stop();
+  }
+}
+</code></pre>
+<ul>
+<li>&#x5B50;&#x7EC4;&#x4EF6;&#x89C6;&#x56FE;&#x63D2;&#x5165;&#x5230;&#x670D;&#x7EC4;&#x4EF6;&#x7C7B;&#x6B65;&#x9AA4;<ul>
+<li>ViewChild &#x88C5;&#x9970;&#x5668;&#x5BFC;&#x5165;&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x6302;&#x4E0A; AfterViewInit &#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;</li>
+<li>&#x901A;&#x8FC7; @ViewChild &#x5C5E;&#x6027;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x5C06;&#x5B50;&#x7EC4;&#x4EF6; CountdownTimerComponent &#x6CE8;&#x5165;&#x5230;&#x79C1;&#x6709;&#x5C5E;&#x6027; timerComponent &#x91CC;&#x9762;</li>
+<li>ngAfterViewInit() &#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x6B65;&#x3002;&#x88AB;&#x6CE8;&#x5165;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#x7EC4;&#x4EF6;&#x53EA;&#x6709;&#x5728; Angular &#x663E;&#x793A;&#x4E86;&#x7236;&#x7EC4;&#x4EF6;&#x89C6;&#x56FE;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x8BBF;&#x95EE;</li>
+</ul>
+</li>
+</ul>
+<p><a href="#&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">Back TO TOC</a></p>
+<h2 id="&#x7236;&#x7EC4;&#x4EF6;&#x548C;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x670D;&#x52A1;&#x6765;&#x901A;&#x8BAF;">&#x7236;&#x7EC4;&#x4EF6;&#x548C;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;&#x670D;&#x52A1;&#x6765;&#x901A;&#x8BAF;</h2>
+<ul>
+<li>&#x7236;&#x7EC4;&#x4EF6;&#x548C;&#x5B83;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x5171;&#x4EAB;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;&#x5229;&#x7528;&#x8BE5;&#x670D;&#x52A1;&#x5728;&#x5BB6;&#x5EAD;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x901A;&#x8BAF;</li>
+<li>&#x8BE5;&#x670D;&#x52A1;&#x5B9E;&#x4F8B;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x88AB;&#x9650;&#x5236;&#x5728;&#x7236;&#x7EC4;&#x4EF6;&#x548C;&#x5176;&#x5B50;&#x7EC4;&#x4EF6;&#x5185;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x6811;&#x4E4B;&#x5916;&#x7684;&#x7EC4;&#x4EF6;&#x5C06;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x6539;&#x670D;&#x52A1;&#x6216;&#x8005;&#x4E0E;&#x5B83;&#x4EEC;&#x901A;&#x4FE1;</li>
+</ul>
+<p>&#x670D;&#x52A1;</p>
+<ul>
+<li>&#x8FD9;&#x4E2A; MissionService &#x628A; MissionControlComponent &#x548C;&#x591A;&#x4E2A; AstronautComponent &#x5B50;&#x7EC4;&#x4EF6;&#x8FDE;&#x63A5;&#x8D77;&#x6765;</li>
+</ul>
+<pre class="language-"><code class="lang-ts">import { Injectable } from &quot;@angular/core&quot;;
+import { Subject } from &quot;rxjs&quot;;
+
+@Injectable()
+export class MissionService {
+  // Observable string sources
+  private missionAnnouncedSource = new Subject<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>();
+  private missionConfirmedSource = new Subject<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>string</span><span class="token punctuation">&gt;</span></span>();
+
+  // Observable string streams
+  missionAnnounced$ = this.missionAnnouncedSource.asObservable();
+  missionConfirmed$ = this.missionConfirmedSource.asObservable();
+
+  // Service message commands
+  announceMission(mission: string) {
+    this.missionAnnouncedSource.next(mission);
+  }
+
+  confirmMission(astronaut: string) {
+    this.missionConfirmedSource.next(astronaut);
+  }
+}
+</code></pre>
+<p>&#x7236;&#x7EC4;&#x4EF6;</p>
+<ul>
+<li>MissionControlComponent &#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x5171;&#x4EAB;&#x7ED9;&#x5B83;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;(&#x901A;&#x8FC7; providers &#x5143;&#x6570;&#x636E;&#x6570;&#x7EC4;)&#xFF0C;&#x5B50;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5C06;&#x8BE5;&#x5B9E;&#x4F8B;&#x6CE8;&#x5165;&#x5230;&#x81EA;&#x8EAB;</li>
+</ul>
+<pre class="language-"><code class="lang-ts">import { Component } from &quot;@angular/core&quot;;
+
+import { MissionService } from &quot;./mission.service&quot;;
+
+@Component({
+  selector: &quot;app-mission-control&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Mission Control<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>announce()<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Announce mission<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>app-astronaut</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>let astronaut of astronauts<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">[astronaut]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>astronaut<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>app-astronaut</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>History<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>let event of history<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{event}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  `,
+  providers: [MissionService]
+})
+export class MissionControlComponent {
+  astronauts = [&quot;Lovell&quot;, &quot;Swigert&quot;, &quot;Haise&quot;];
+  history: string[] = [];
+  missions = [&quot;Fly to the moon!&quot;, &quot;Fly to mars!&quot;, &quot;Fly to Vegas!&quot;];
+  nextMission = 0;
+
+  constructor(private missionService: MissionService) {
+    missionService.missionConfirmed$.subscribe(astronaut =&gt; {
+      this.history.push(`${astronaut} confirmed the mission`);
+    });
+  }
+
+  announce() {
+    let mission = this.missions[this.nextMission++];
+    this.missionService.announceMission(mission);
+    this.history.push(`Mission &quot;${mission}&quot; announced`);
+    if (this.nextMission &gt;= this.missions.length) {
+      this.nextMission = 0;
+    }
+  }
+}
+</code></pre>
+<p>&#x5B50;&#x7EC4;&#x4EF6;</p>
+<ul>
+<li>AstronautComponent &#x4E5F;&#x901A;&#x8FC7;&#x81EA;&#x5DF1;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6CE8;&#x5165;&#x8BE5;&#x670D;&#x52A1;&#x3002;&#x7531;&#x4E8E;&#x6BCF;&#x4E2A; AstronautComponent &#x90FD;&#x662F; MissionControlComponent &#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x4E5F;&#x662F;&#x7236;&#x7EC4;&#x4EF6;&#x7684;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5B9E;&#x4F8B;</li>
+</ul>
+<pre class="language-"><code class="lang-ts">import { Component, Input, OnDestroy } from &quot;@angular/core&quot;;
+
+import { MissionService } from &quot;./mission.service&quot;;
+import { Subscription } from &quot;rxjs&quot;;
+
+@Component({
+  selector: &quot;app-astronaut&quot;,
+  template: `
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+      {{astronaut}}: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">&gt;</span></span>{{mission}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+        <span class="token attr-name">(click)</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>confirm()<span class="token punctuation">&quot;</span></span>
+        <span class="token attr-name">[disabled]</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>!announced || confirmed<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        Confirm
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  `
+})
+export class AstronautComponent implements OnDestroy {
+  @Input()
+  astronaut: string;
+  mission = &quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>no</span> <span class="token attr-name">mission</span> <span class="token attr-name">announced</span><span class="token punctuation">&gt;</span></span>&quot;;
+  confirmed = false;
+  announced = false;
+  subscription: Subscription;
+
+  constructor(private missionService: MissionService) {
+    this.subscription = missionService.missionAnnounced$.subscribe(mission =&gt; {
+      this.mission = mission;
+      this.announced = true;
+      this.confirmed = false;
+    });
+  }
+
+  confirm() {
+    this.confirmed = true;
+    this.missionService.confirmMission(this.astronaut);
+  }
+
+  ngOnDestroy() {
+    // prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
+}
+</code></pre>
+<p><a href="#&#x7EC4;&#x4EF6;&#x4EA4;&#x4E92;">Back TO TOC</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="lifecycle-hooks.html" class="navigation navigation-prev " aria-label="Previous page: 生命周期钩子">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="component-styles.html" class="navigation navigation-next " aria-label="Next page: 组件样式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"组件交互","level":"1.2.7.3","depth":3,"next":{"title":"组件样式","level":"1.2.7.4","depth":3,"path":"Angular/knowledge/component&template/component-styles.md","ref":"Angular/knowledge/component&template/component-styles.md","articles":[]},"previous":{"title":"生命周期钩子","level":"1.2.7.2","depth":3,"path":"Angular/knowledge/component&template/lifecycle-hooks.md","ref":"Angular/knowledge/component&template/lifecycle-hooks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","expandable-chapters-small","splitter","-lunr","-search","search-plus","-highlight","prism","prism-themes","livereload"],"pluginsConfig":{"prism":{},"livereload":{},"splitter":{},"fontsettings":{"theme":"white","family":"sans","size":2},"prism-themes":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"search-plus":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Angular/knowledge/component&template/component-interaction.md","mtime":"2018-08-23T03:37:40.447Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T09:35:27.702Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
