@@ -1,0 +1,488 @@
+# mysql 常用命令
+
+## 检索数据
+
+1. 检索单个列
+   
+```sql
+select prod_name
+from products;
+```
+
+2. 检索多个列
+
+```sql
+select prod_name, prod_id
+from products;
+```
+
+3. 检索所有列
+
+```sql
+select *
+from products;
+```
+
+4. 去重
+
+```sql
+select distinct vend_id
+from products;
+```
+
+5. 限制结果
+
+```sql
+-- 最多返回 5 条
+select prod_name
+from products
+limit 5;
+
+-- 从第 5 条开始返回 5 条， mysql 第一条为 0
+select prod_name
+from products
+limit 5, 5;
+```
+
+
+6. 使用完全限制表名
+
+```sql
+select products.prod_name
+from products;
+
+select products.prod_name
+from crashcourse.products;
+```
+
+## 排序检索数据
+
+ * 使用非检索的列排序也是合法的
+ * asc -- 升序(默认)
+ * desc -- 降序 
+
+1. 排序数据
+
+```sql
+select prod_name
+from products
+order by prod_name;
+```
+
+2. 多列排序
+
+ * 按先后顺序优先排列
+
+```sql
+select prod_name, prod_id, prod_price
+from products
+order by prod_price, prod_name;
+```
+
+3. 指定方向排序
+
+ * 降序排列
+```sql
+select prod_name, prod_id, prod_price
+from products
+order by prod_price desc, prod_name;
+```
+
+## 过滤数据
+
+1. 使用 where 子句
+
+```sql
+select prod_name, prod_id, prod_price
+from products
+where prod_price = 2.5;
+```
+
+2. where 子句操作符
+
+| 操作符  | 说明           |
+| ------- | -------------- |
+| =       | 等于           |
+| <>      | 不等于         |
+| !=      | 不等于         |
+| <       | 小于           |
+| <=      | 小于等于       |
+| >       | 大于           |
+| between | 指定两个值之间 |
+
+3. 检查单个值
+
+```sql
+select prod_name, prod_price
+from products
+where prod_name = 'fuses';
+
+select prod_name, prod_price
+from products
+where prod_price < 10;
+```
+
+4. 不匹配检查
+
+```sql
+select prod_name, prod_price
+from products
+where prod_price != 10;
+```
+
+5. 范围检查
+
+```sql
+select prod_name, prod_price
+from products
+where prod_price between 5 and 10;
+```
+
+6. 空值检查
+
+```sql
+select prod_name, prod_price
+from products
+where prod_price is null;
+```
+
+## 数据过滤
+
+ * and 操作符优先级高于 or 操作符
+
+1. 组合 where 子句
+
+```sql
+-- and
+select prod_name, prod_price
+from products
+where vend_id  = 1003 and prod_price <= 10;
+
+-- or
+select prod_name, prod_price
+from products
+where vend_id  = 1003 or prod_price = 1004;
+
+-- 计算次数
+select prod_name, prod_price
+from products
+where vend_id  = 1003 or prod_price = 1004 and prod_price >= 10;
+```
+
+2. IN 操作符
+   * IN 操作符括号内不能为空
+
+```sql
+select prod_name, prod_price
+from products
+where vend_id in (1002, 1003)
+order by prod_name;
+```
+
+3. NOT 操作符
+
+ * NOT 支持对 IN、BETWEEN、EXISTS 子句取反
+
+```sql
+select prod_name, prod_price
+from products
+where vend_id not in (1002, 1003)
+order by prod_name;
+```
+
+## 通用符过滤
+
+1. like 操作符
+
+```sql
+select prod_name
+from products
+where prod_name like 'iet%';
+```
+
+2. % 通配符
+
+ * % 匹配可以多个字符
+```sql
+select prod_name
+from products
+where prod_name like '%iet%';
+```
+
+3. _ 通配符
+
+ * _ 匹配一个字符
+```sql
+select prod_name
+from products
+where prod_name like '_ ton';
+```
+
+## 正则表达式搜索
+
+1. 基本字符匹配
+
+```sql
+select prod_name
+from products
+where prod_name regexp '1000'
+order by prod_name;
+```
+
+2. or 匹配
+
+```sql
+select prod_name
+from products
+where prod_name regexp '1000|2000'
+order by prod_name;
+```
+
+3. 匹配几个字符之一
+
+```sql
+select prod_name
+from products
+where prod_name regexp '[123] Ton'  -- 匹配 1 Ton、2 Ton、3 Ton
+order by prod_name;
+
+select prod_name
+from products
+where prod_name regexp '1|2|3 Ton'  -- 匹配 1、2、3 Ton
+order by prod_name;
+```
+
+4. 匹配范围
+
+```sql
+select prod_name
+from products
+where prod_name regexp '[1-3] Ton'  -- 匹配 1 Ton、2 Ton、3 Ton
+order by prod_name;
+```
+
+5. 匹配特殊字符
+
+ * 使用两个反斜线来匹配特殊字符
+```sql
+select prod_name
+from products
+where prod_name regexp '\\.'  -- 匹配 .
+order by prod_name;
+```
+
+|元字符|说明|
+|--|--|
+|\\f|换页|
+|\\n|换行|
+|\\r|回车|
+|\\t|制表|
+|\\v|纵向制表|
+
+6. 匹配字符类
+
+|类|说明|
+|--|--|
+|[:alnum:]|任意字母和数字([a-zA-Z0-9])|
+|[:alpha:]|任意字符(a-zA-Z)|
+|[:blank:]|空格和制表([\\t])|
+|[:cntrl:]|ASCII 控制字符(ASCII 0 到 31 和 127)|
+|[:digit:]|任意数字([0-9])|
+|[:graph:]|与[:print:]相同，但不包括空格|
+|[:lower:]|任意小写字母([a-z])|
+|[:print:]|任意可打印字符|
+|[:punct:]|既不在[:alnum:]又不在[:cntrl:]中的任意字符|
+|[:space:]|包括空格在内的任意空白字符([\\f\\n\\r\\t\\v])|
+|[:upper:]|人意大写字母([A-Z])|
+|[:xdigit:]|任意十六进制数字([a-fA-F0-9])|
+
+7. 匹配多个实例
+
+|元字符|说明|
+|--|--|
+|*|0 或多个匹配|
+|+|1或多个匹配|
+|?|0 或 1 个匹配|
+|{n}|指定数目匹配|
+|{n,}|不少于指定数目的匹配|
+|{n,m}|匹配数目的范围(m不超过255)|
+
+8. 定位符
+
+|元字符|说明|
+|--|--|
+|^|文本开始|
+|$|文本结束|
+|[[:<:]]|词的开始|
+|[[:>:]]|词的结束|
+
+## 创建计算字段
+
+1. 拼接字段
+
+```sql
+-- concat 或 Concat 都行
+select Concat(vend_name, '(', vend_country, ')')
+from vendors
+where order_num = 20005;
+```
+
+2. 使用别名
+   
+```sql
+select Concat(vend_name, '(', vend_country, ')') as vend_title
+from vendors
+where order_num = 20005;
+```
+
+3. 算术计算
+
+```sql
+select prod_id,
+       quantity,
+       item_price,
+       quantity*item_price as expanded_price
+from vendors
+where order_num = 20005;
+```
+
+算数操作符
+
+ * +
+ * -
+ * *
+ * /
+
+4. 去掉空格
+
+ * RTrim 去掉右边空格
+ * LTrim 去掉左边空格
+ * Trim 去掉两边空格
+
+```sql
+select Concat(RTrim(vend_name), '(', RTrim(vend_country), ')')
+from vendors
+where order_num = 20005;
+```
+
+## 使用数据处理函数
+
+## 汇总数据
+
+## 分组数据
+
+group by 规定
+
+ * group by 子句中列出的每个列都必须是检索列或有效的表达式(不能是聚集函数)
+ * 除聚集计算语句外，select 语句中的每个列都必须在 group by 子句中给出
+ * 如果分组列中具有 null 值，则 null 将作为一个分组返回，如果列中有多行null值，它们将分为一组
+ * group by 子句必须出现在 where 子句之后， order by 之前
+
+1. 创建分组
+
+```sql
+select vend_id, count(*) as num_prods
+from products
+group by vend_id;
+```
+
+2. 过滤分组
+
+```sql
+select cust_id, count(*) as orders
+from orders
+group by cust_id
+having count(*) >= 2;
+```
+
+3. 分组和排序
+
+```sql
+select order_num, sum(quantity*item_price) as ordertotal
+from orderitems
+group by order_num
+having sum(quantity*item_price) >= 50
+order by ordertotal;
+```
+
+4. select 子句顺序
+
+```sql
+select from where group by having order by limit
+```
+## 使用子查询
+
+```sql
+select cust_id
+from orders
+where order_num in (
+    select order_num
+    from orderitems
+    where prod_id = 'TNT2'
+);
+```
+
+## 联结表
+
+1. 创建联结
+
+```sql
+select vend_name, prod_name, prod_price
+from vendors, products
+where vendors.vend_id = products.vend_id
+order by vend_name, prod_name;
+```
+
+2. 内部联结
+
+```sql
+-- 等价于上面的 sql
+select vend_name, prod_name, prod_price
+from vendors inner join products
+on vendors.vend_id = products.vend_id
+order by vend_name, prod_name;
+```
+
+3. 联结多个表
+
+```sql
+select vend_name, prod_name, prod_price, quantity
+from orderitems, products, vendors
+where vendors.vend_id = products.vend_id
+and orderitems.prod_id = products.prod_id
+and order_num = 2005;
+```
+
+## 高级联结
+
+1. 使用表别名
+
+```sql
+select cust_name, cust_contact
+from customers as c, orders as 0, orderitems as oi
+where c.cust_id = o.cust_id
+  and oi.order_num = o.order_num
+  and prod_id = 'TNT2';
+```
+
+2. 使用不同类型的联结
+
+自联结
+```sql
+select p1.prod_id, p1.prod_name
+from products as p1, products as p2
+where p1.vend_id = p2.vend_id
+and p1.prod_id = 'DTNTR';
+```
+
+## 组合查询
+
+```sql
+select vend_id, prod_id, prod_price
+from products
+where prod_price <= 5
+union -- union all 不会去重， union 会去重
+select vend_id, prod_id, prod_price
+from products
+where vend_id IN (1001,1002)
+```
