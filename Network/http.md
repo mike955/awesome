@@ -39,3 +39,46 @@
  * http 2.0 在一个 TCP 连接上实现并行双向数据流通信
  * http 2.0 可以为每个数据流设置优先级和依赖，优先级高的数据流会被服务器优先处理和返回给客户端，数据流还可以依赖其他的子数据流
  * http 2.0 只是对 http1.x 的并行请求进行了优化，同时对头部数据进行压缩，采用二进制分帧进行处理
+
+```js
+// https
+const https = require('https');
+const fs = require('fs');
+
+let options = {
+  key: fs.readFileSync('./server.key'),
+  cert: fs.readFileSync('./server.crt')
+}
+https.createServer(options, (req, res) => {
+  res.writeHead(200);
+  res.end('hello world\n');
+}).listen(7099);
+
+
+// http2
+const http2 = require('http2');
+const fs = require('fs');
+
+
+const server = http2.createSecureServer({
+  key: fs.readFileSync('./server.key'),
+  cert: fs.readFileSync('./server.crt')
+});
+
+server.on('error', (err) => console.error(err));
+server.on('stream', (stream, headers) => {
+  // stream is a Diuplex
+  // console.log(stream)
+  stream.respond({
+    'content-type': 'text/html',
+    ':status': 200
+  });
+  stream.end('hello world\n');
+});
+
+server.listen(5000, () => {
+        console.log('server start at http://localhost:5000')
+});
+```
+上述 https 和 http2 代码，同一个请求，请求时间对比如下：
+![请求结果对比](./https_http2.jpeg)
