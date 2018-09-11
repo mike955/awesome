@@ -44,3 +44,13 @@ iptables -P FORWARD ACCEPT
 5. 修改 install/environment.sh 文件中机器 IP
 
 6. 执行 install.sh 脚本
+
+7. 问题
+
+ha启动失败
+```sh
+mkdir haproxy
+chown haproxy:haproxy -P haproxy/
+systemctl restart haproxy
+systemctl status haproxy|grep Active
+```
