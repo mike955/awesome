@@ -4,6 +4,7 @@
 
 ```sh
 docker run -d \
+--restart always \
 -p 8500:8500 \
 -v /Users/clx/dockerVolume/consul:/consul/data \
 -e CONSUL_CLIENT_INTERFACE='eth0' \
