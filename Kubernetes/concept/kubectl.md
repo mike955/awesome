@@ -16,6 +16,7 @@
 <!-- /code_chunk_output -->
 
 ---
+kubectl 是与 kubernetes 集群进行交互的命令行工具，kubectl主要是与 api-server 进行交互
 
 #### 1.创建资源对象
 
