@@ -10,7 +10,7 @@ Koa 是一个流行的 Web 框架，由 Express 原班人马打造，致力于�
 
 ## 目录说明
 
-从 github 上拉取代码并  使用 vscode 打开
+从 github 上拉取代码并使用 vscode 打开
 
 ```sh
 git clone https://github.com/koajs/koa.git
@@ -35,7 +35,7 @@ code .
 
 ## package.json 文件介绍
 
-在 JS 中，规范的框架和库都  会在根目录中包含一个 package.json 文件，这个  文件  是对该工程的一个说明，包括版本，基本  使用等；同时也是 npm 官方推荐需要编写的文件，通过该文件可以更好的在 npm 上安装使用 npm 包， 因此在研究一个工程的源码时，应该首先查看其 package.json 文件。koa 2.5.2 的 package.json 文件如下，下面对 package.json 文件的关键字段进行说明。
+在 JS 中，规范的框架和库都会在根目录中包含一个 package.json 文件，这个  文件  是对该工程的一个说明，包括版本，基本  使用等；同时也是 npm 官方推荐需要编写的文件，通过该文件可以更好的在 npm 上安装使用 npm 包， 因此在研究一个工程的源码时，应该首先查看其 package.json 文件。koa 2.5.2 的 package.json 文件如下，下面对 package.json 文件的关键字段进行说明。
 
 ```json
 {
@@ -152,7 +152,7 @@ module.export = class Application extends Emitter {
 };
 ```
 
-从上面的代码  中可以看到，Koa 为实例对象设置  了七个属性和八个方法，同时应用集成 Node.js 的 Emitter 模块.
+从上面的代码中可以看到，Koa 为实例对象设置  了七个属性和八个方法，同时应用集成 Node.js 的 Emitter 模块.
 
 下面首先对上面的七个属性和八个方法分别进行说明，再  说明为什么要继承 Emitter 模块.
 
