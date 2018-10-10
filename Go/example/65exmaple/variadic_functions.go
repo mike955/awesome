@@ -1,9 +1,11 @@
 package main
 
 import "fmt"
+import "reflect"
 
 func sum(nums... int) {
-	fmt.Println(nums, " ")
+	fmt.Println(reflect.TypeOf(nums))
+	fmt.Print(nums, " ")
 	total := 0
 	for _, num := range nums {
 		total += num

@@ -44,3 +44,13 @@ func main() {
   whatAmI(1)
   whatAmI("hey")
 }
+
+/* output
+
+write 2 as two
+it's a weekday
+it's after noon
+i'm a bool
+i'm an int
+don't know type string
+*/

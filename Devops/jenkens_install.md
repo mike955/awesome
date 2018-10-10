@@ -19,6 +19,6 @@ docker run --name jenkins \
     --restart always \
     -p 8001:8080 \
     -p 50000:50000 \
-    -v /Users/clx/dockerVolume/jenkins:/var/jenkins_home \
+    -v /root/dockerVolume/jenkins:/var/jenkins_home \
     -d jenkins
 ```

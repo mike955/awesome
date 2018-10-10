@@ -1,0 +1,35 @@
+[Unit]
+Description=Etcd Server
+After=network.target
+After=network-online.target
+Wants=network-online.target
+Documentation=https://github.com/coreos
+
+[Service]
+Type=notify
+WorkingDirectory=/var/lib/etcd/
+ExecStart=/user/local/bin/etcd \
+  --data-dir=/var/lib/etcd \
+  --name=${ETCD_NODE_NAME} \
+  --cert-file=/etc/etcd/ssl/etcd.pem \
+  --key-file=/etc/etcd/ssl/etcd-key.pem \
+  --trusted-ca-file=/etc/kubernetes/ssl/ca.pem \
+  --peer-cert-file=/etc/etcd/ssl/etcd.pem \
+  --peer-key-file=/etc/etcd/ssl/etcd-key.pem \
+  --peer-trusted-ca-file=/etc/kubernetes/ssl/ca.pem \
+  --peer-client-cert-auth \
+  --client-cert-auth \
+  --listen-peer-urls=https://${ETCD_NODE_IP}:2380 \
+  --initial-advertise-peer-urls=https://${ETCD_NODE_IP}:2380 \
+  --listen-client-urls=https://${ETCD_NODE_IP}:2379,http://127.0.0.1:2379 \
+  --advertise-client-urls=https://${ETCD_NODE_IP}:2379 \
+  --initial-cluster-token=etcd-cluster-0 \
+  --initial-cluster=${ETCD_NODES} \
+  --initial-cluster-state=new
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+ETCD_NODE_IP

@@ -1,0 +1,20 @@
+[Unit]
+Description=Kubernetes Kube-Proxy Server
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=network.target
+
+[Service]
+WorkingDirectory=/var/lib/kube-proxy
+ExecStart=/usr/local/bin/kube-proxy \
+  --bind-address=__G_HOST_IP__ \
+  --hostname-override=__G_HOST_IP__ \
+  --cluster-cidr=__SERVICE_CIDR__ \
+  --kubeconfig=/etc/kubernetes/kube-proxy.kubeconfig \
+  --logtostderr=true \
+  --v=2
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
