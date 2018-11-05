@@ -1,0 +1,3 @@
+module.exports = {
+    port: "{{ keyOrDefault "/test/port" "5000" }}"
+}
