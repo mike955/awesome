@@ -1,5 +1,4 @@
 # consul 简介
-https://www.hi-linux.com/posts/28048.html(将该链接内容补充到本文档)
 ---
 consul 是一个服务管理工具，提供服务发现、配置和 segmentation functionality 功能化管理平台，这些功能既可以单独使用，也可以一起使用，consul 需要数据平面支持代理和本机集成模型，consul 还福袋一个简单的内置代理工具，也支持第三方代理，consul 同时也是也分布式、高可用的系统。
 
@@ -15,6 +14,13 @@ consul 主要特征如下：
  - agent: 一个 agent 是 consul 集群中每个成员上长时间运行的守护程序，通过`consul agent`来启动一个 agent，agent 能够以 client 或 server 模型运行，由于所有的节点都必须运行 agent，因此将 节点成为 client 或 server 更易于理解，所有的 agent 都可以运行 DNS 或 HTTP 接口，并负责运行检查并保持服务同步。
  - client: client 将所有的 RPC 转发到 server，client 是无状态的
  - server: server 是一个具有扩展能力的 agent，server 需要参与 raft 仲裁、维护集群状态、相应 RPC 查询、与其他数据中心交换 WAN gossip、将查询转发给 leader 或远程数据中心，本身也会持久化信息。
+ - datacenter: 数据中心，一个集群只有一个数据中心
+ - gossip: consul 建立在 serf 的基础之上，它提供了一个用户多播目的的完成的 gossip 协议，serf 提供成员关系，故障检测和事件广播
+ - LAN Gossip: 包含所有位于同一个局域网网或者数据中心的所有节点
+ - WAN Gossip: 只包含 server， 这些 server 主要分布在不同的数据中心并且通常通过英特网或者广域网通信
+
+consul架构说明：
+![](./pic/arti.png)
 
 ## 基本使用
 
