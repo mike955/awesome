@@ -1,6 +1,10 @@
 ### install docker-ce for centos
 
 ---
+#### 直接安装
+```sh
+curl -sSL https://get.docker.com/ | sh
+```
 
 #### 安装 docker-ce
 ```sh
@@ -34,4 +38,9 @@ sudo systemctl start docker
 ```sh
 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://027f9e95.m.daocloud.io
 sudo systemctl restart docker
+```
+
+#### 设置开机启动
+```sh
+systemctl enable docker
 ```
