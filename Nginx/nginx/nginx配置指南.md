@@ -1,11 +1,21 @@
 # nginx 配置文件解释
 
+<!-- TOC -->
+
+- [nginx 配置文件解释](#nginx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E9%87%8A)
+    - [示例配置文件](#%E7%A4%BA%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+    - [配置注意点](#%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E7%82%B9)
+
+<!-- /TOC -->
+
+## 示例配置文件
 ```conf
- # 使用的用户和组，默认为 nobody
+env NAMESPACE
+ # 使用的用户和组，默认为 nobody，fork 出的 worker 进程运行在哪个用户和用户组下
 user  www www;
 # 指定工作衍生进程数, 通常为 cpu 个数
 worker_processes  2;
-# 指定 pid 存放的路径，默认可不配
+# 指定 master 进程的 pid 存放的路径，默认可不配
 pid /var/run/nginx.pid;
 
 # [ debug | info | notice | warn | error | crit ]
@@ -54,7 +64,7 @@ http {
     output_buffers   1 32k;
     postpone_output  1460;
 
-    sendfile         on;
+    sendfile         on;    # 设置可以启用 linux 上的 sendfile 系统调用来发送文件，减少了内核态与用户态之间的两次内存复制，这样就会从磁盘中读取文件后直接在内核态发送到网卡设备，提高了发生文件的效率
     tcp_nopush       on;
     tcp_nodelay      on;
     send_lowat       12000;
@@ -70,7 +80,8 @@ http {
         listen        one.example.com;  # 指定当前 server 的监听地址和端口号，默认值为 80，也可以为 localhost:80、127.0.0.1:80、*:8000、8000，通常该配置只配置端口号，`server_name`配置域名或 ip
         server_name   one.example.com  www.one.example.com;     # 服务的名字，可以为域名或者 ip，常用
 
-        
+        limit_rate_after;    # 设置向客户端发送的响应长度超过 limit_rate_after 后才开始限速
+        limit_rate  10M;     # 限制客户端请求限制每秒传输的字节数
 
         location / {            # 设置某类请求
             proxy_pass         http://127.0.0.1/;           # 设置请求转发地址
@@ -141,3 +152,12 @@ http {
     }
 }
 ```
+
+## 配置注意点
+
+ - 每行配置的结尾需要加上分号
+ - 如果配置项中包括语法符号，比如空格符，需要使用单引号或者双引号括住配置项值，否则 nginx 会报错
+ - 配置想单位，空间大小默认为**字节**，时间单位默认为**毫秒**
+    - 指定空间大小时，k 或者 K 表示千字节，m 或者 M 表示兆字节
+    - 指定时间时，ms(毫秒)、s(秒)、m(分钟)、h(小时)、d(天)、w(周，7 天)、M(月，30天)、y(年，365)
+ - 在配置相中使用变量时需要在前面加上 $ 符号
