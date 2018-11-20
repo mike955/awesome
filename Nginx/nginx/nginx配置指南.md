@@ -3,10 +3,32 @@
 <!-- TOC -->
 
 - [nginx 配置文件解释](#nginx-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E9%87%8A)
+    - [配置文件结构](#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84)
     - [示例配置文件](#%E7%A4%BA%E4%BE%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
     - [配置注意点](#%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E7%82%B9)
 
-<!-- /TOC -->
+
+## 配置文件结构
+```conf
+events {
+
+}
+
+http {
+    upstream upstream_name {
+        
+    }
+
+    server {
+        listen
+        server_name
+
+        location {
+
+        }
+    }
+}
+```
 
 ## 示例配置文件
 ```conf
