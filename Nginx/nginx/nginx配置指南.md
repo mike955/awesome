@@ -10,11 +10,11 @@
 
 ## 配置文件结构
 ```conf
-events {
+events {    # General connection processing
 
 }
 
-http {
+http {      # http traffice handle
     upstream upstream_name {
         
     }
@@ -27,6 +27,14 @@ http {
 
         }
     }
+}
+
+mail {      # mail traffice handle
+    server {}
+}
+
+stream {    # tcp and udp traffice handle
+    server {}
 }
 ```
 
