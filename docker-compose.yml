@@ -1,0 +1,81 @@
+version: "2"
+
+services:
+  influxdbData:
+    image: busybox
+    volumes:
+      - ./data/influxdb:/data
+
+  influxdb:
+    image: tutum/influxdb:0.9
+    restart: always
+    environment:
+      - PRE_CREATE_DB=cadvisor
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+    expose:
+      - "8090"
+      - "8099"
+    volumes_from:
+      - "influxdbData"
+
+  cadvisor:
+    image: google/cadvisor
+    links:
+      - influxdb:influxsrv
+    command: -storage_driver=influxdb -storage_driver_db=cadvisor -storage_driver_host=influxsrv:8086
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
+  grafana:
+    image: grafana/grafana:5.3.2
+    restart: always
+    ports:
+      - 30001:3000
+    links:
+      - influxdb:influxsrv
+    user: "472"
+    environment:
+      - "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource"
+      - "GF_SECURITY_ADMIN_PASSWORD=3564423"
+      - HTTP_USER=admin
+      - HTTP_PASS=admin
+      - INFLUXDB_HOST=influxsrv
+      - INFLUXDB_PORT=8086
+      - INFLUXDB_NAME=cadvisor
+      - INFLUXDB_USER=root
+      - INFLUXDB_PASS=root
+
+  mysqld-exporter:
+    image: prom/mysqld-exporter
+    restart: always
+    ports: 
+      - 9104:9104
+    environment: 
+      - DATA_SOURCE_NAME="root:Cai3564423@192.168.16.68:3307"
+
+  node-exporter:
+    image: prom/node-exporter
+    pid: "host"
+    network_mode: "host"
+    volumes: 
+      - /:/host:ro,rslave
+      - /:/rootfs:ro
+    expose: 
+      - 9100
+
+  prometheus:
+    image: prom/prometheus
+    volumes: 
+      - /root/docker-compose/grafana/prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports: 
+      - 9090:9090
+  
+

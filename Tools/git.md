@@ -79,7 +79,7 @@ git rebase master
 ```sh
 git show [hashNum]      # 显示某次提交详情
 git show HEAD^          # 查看前一次提交
-git show HEAD^          # 查看前两次提交
+git show HEAD^^          # 查看前两次提交
 git stash               # 暂存当前修改
 git stash save          # 暂存当前修改
 git stash list          # 查看所有暂存修改

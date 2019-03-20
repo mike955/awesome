@@ -1,0 +1,61 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: nginx
+  name: nginx
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - port: 5081
+      targetPort: 5081
+      nodePort: 30101
+      name: '5081'
+    - port: 5082
+      targetPort: 5082
+      nodePort: 30102
+      name: '5082'
+    - port: 5083
+      targetPort: 5083
+      nodePort: 30103
+      name: '5083'
+    - port: 5084
+      targetPort: 5084
+      nodePort: 30104
+      name: '5084'
+    - port: 5085
+      targetPort: 5085
+      nodePort: 30105
+      name: '5085'
+    - port: 5086
+      targetPort: 5086
+      nodePort: 30106
+      name: '5086'
+  selector:
+    app: nginx
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.15
+          volumeMounts:
+            - mountPath: /etc/nginx/nginx.conf
+              name: nginx-conf
+      volumes:
+        - name: nginx-conf
+          hostPath:
+            path: /data/default/nginx/nginx.conf

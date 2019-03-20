@@ -1,0 +1,49 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: mysql8
+  name: mysql8
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - port: 3306
+      targetPort: 3306
+      nodePort: 30201
+      name: 'mysql8-port'
+  selector:
+    app: nginx
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mysql8
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mysql8
+    spec:
+      containers:
+        - name: mysql8
+          image: mysql:8
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: '@Cai3564423'
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql8-data
+            - mountPath: /etc/mysql/conf.d
+              name: mysql8-conf
+      volumes:
+        - name: mysql8-data
+          hostPath:
+            path: /data/default/mysql8/data
+        - name: mysql8-conf
+          hostPath:
+            path: /data/default/mysql8/conf
