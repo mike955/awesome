@@ -104,9 +104,9 @@ kubeadm config images list --kubernetes-version=v1.13.4 # 列出所需镜像
 
 # 开始初始化集群
 kubeadm init \
-  --kubernetes-version=v1.13.4 \
+  --kubernetes-version=v1.14.0 \
   --pod-network-cidr=10.244.0.0/16 \
-  --apiserver-advertise-address=192.168.27.202   #   修改为机器 ip
+  --apiserver-advertise-address=192.168.114.112   #   修改为机器 ip
 ```
 
 6.赋予 root 用户 kubectl 权限

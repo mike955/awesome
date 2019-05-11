@@ -1,0 +1,53 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: zipkin
+  name: zipkin
+  namespace: default
+spec:
+  ports:
+    - port: 9411
+      targetPort: 9411
+  selector:
+    app: zipkin
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: zipkin
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zipkin
+    spec:
+      containers:
+        - name: zipkin
+          image: openzipkin/zipkin
+          env:
+            - name: STORAGE_TYPE
+              value: mysql
+            - name: MYSQL_HOST
+              value: 127.0.0.1
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_PASS
+              value: "@a123456!"
+        - name: zipkin-mysql
+          image: openzipkin/zipkin-mysql
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: zipkin-mysql
+              mountPath: /mysql/data
+      volumes:
+        - name: zipkin-mysql
+          hostPath:
+            path: /data/zipkin-mysql
+      nodeSelector:
+        ip: 192.168.27.213

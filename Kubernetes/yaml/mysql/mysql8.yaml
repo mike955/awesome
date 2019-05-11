@@ -34,7 +34,7 @@ spec:
           image: mysql:8
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: '@Cai3564423'
+              value: 'dev123456!'
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: mysql8-data

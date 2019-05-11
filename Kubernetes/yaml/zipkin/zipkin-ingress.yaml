@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: zipkin-ingress
+  namespace: default
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /zipkin
+        backend:
+          serviceName: zipkin
+          servicePort: 9411
+      - path: /api/v2
+        backend:
+          serviceName: zipkin
+          servicePort: 9411
